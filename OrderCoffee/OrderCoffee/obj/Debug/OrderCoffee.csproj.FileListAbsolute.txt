@@ -77,3 +77,5 @@ E:\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.csproj.CoreCo
 E:\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.csproj.CopyComplete
 E:\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.dll
 E:\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.pdb
+E:\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Dapper.dll
+E:\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Dapper.xml
