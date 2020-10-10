@@ -79,3 +79,7 @@ E:\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.dll
 E:\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.pdb
 E:\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Dapper.dll
 E:\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Dapper.xml
+E:\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\EntityFramework.dll
+E:\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\EntityFramework.SqlServer.dll
+E:\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\EntityFramework.xml
+E:\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\EntityFramework.SqlServer.xml
