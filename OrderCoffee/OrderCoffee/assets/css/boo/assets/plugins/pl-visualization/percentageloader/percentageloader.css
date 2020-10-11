@@ -1,0 +1,20 @@
+#topLoader {
+        width: 156px;
+        height: 156px;
+        margin-bottom: 32px;
+      }
+
+@font-face {
+    font-family: 'BebasNeueRegular';
+    src: url('BebasNeue-webfont.html');
+    src: url('BebasNeue-webfontd41d.html?#iefix') format('embedded-opentype'),
+         url('BebasNeue-webfont-2.html') format('woff'),
+         url('BebasNeue-webfont-3.html') format('truetype'),
+         url('BebasNeue-webfont-4.html#BebasNeueRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+      
+
