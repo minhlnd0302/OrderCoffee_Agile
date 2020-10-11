@@ -54,14 +54,15 @@ namespace OrderCoffee.Controllers
             {
                 user = db.Query<Account>(queryFindUserName).FirstOrDefault();
 
-                if (user == null) {
+                if (user == null)
+                {
                     user = db.Query<Account>(queryFindEmail).FirstOrDefault();
                 }
             }
 
             if (user != null)
             {
-                if(user.PassWord == id_login_password)
+                if (user.PassWord == id_login_password)
                 {
                     return View("AdminDashboard");
                 }
