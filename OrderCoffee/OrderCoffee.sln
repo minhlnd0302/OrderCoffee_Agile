@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderCoffee", "OrderCoffee\OrderCoffee.csproj", "{7CA0005E-8917-4CE4-8FBB-7968D6290640}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseProject", "DBManager\DatabaseProject.csproj", "{11189C43-F88B-42ED-81C8-DDFEBBED1AAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7CA0005E-8917-4CE4-8FBB-7968D6290640}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CA0005E-8917-4CE4-8FBB-7968D6290640}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CA0005E-8917-4CE4-8FBB-7968D6290640}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11189C43-F88B-42ED-81C8-DDFEBBED1AAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11189C43-F88B-42ED-81C8-DDFEBBED1AAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11189C43-F88B-42ED-81C8-DDFEBBED1AAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11189C43-F88B-42ED-81C8-DDFEBBED1AAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
