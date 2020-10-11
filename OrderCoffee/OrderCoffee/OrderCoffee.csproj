@@ -136,6 +136,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\Cart_Detail.cs" />
+    <Compile Include="Models\Categories.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Discount_Code.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Order_Detail.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Roles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
