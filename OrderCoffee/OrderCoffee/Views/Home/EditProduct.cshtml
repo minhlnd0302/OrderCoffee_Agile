@@ -20,6 +20,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="~/JS/requestData.js"></script>
+
     <!-- Le styles -->
     <link href="~/assets/css/lib/bootstrap.css" rel="stylesheet">
     <link href="~/assets/css/lib/bootstrap-responsive.css" rel="stylesheet">
@@ -29,6 +35,10 @@
     <link href="~/assets/css/boo-coloring.css" rel="stylesheet">
     <link href="~/assets/css/boo-utility.css" rel="stylesheet">
 
+    <link href="~/assets/css/w2ui-1.5.rc1.min.css" rel="stylesheet" />
+    <script src="~/assets/js/w2ui-1.5.rc1.min.js"></script>
+    <link href="~/assets/css/w2ui-1.5.rc1.css" rel="stylesheet" />
+    <script src="~/assets/js/w2ui-1.5.rc1.js"></script>
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -137,7 +147,7 @@
                         <div class="accordion-heading">
                             <a href="/Home/EditProduct" data-parent="#mainSideMenu" class="accordion-toggle">
                                 <span class="item-icon aweso-icon-list-alt"></span>
-                                Product
+                                Manager
                             </a>
                         </div>
                     </li>
@@ -155,206 +165,124 @@
                 <div class="row-fluid page-head">
                     <h2 class="page-title">
                         <i class="aweso-icon-table"></i> Management Page
-                    </h2> 
+                    </h2>
                     <div class="page-bar">
                         <div class="btn-toolbar"> </div>
                     </div>
                 </div>
                 <!-- // page head -->
 
-                <div id="page-content" class="page-content">  
+                <div id="page-content" class="page-content">
                     <section>
                         <div class="page-header">
-                            <h3><i class="aweso-icon-table opaci35"></i> ... add caption, table info <small>.boo-table .table-bordered</small></h3>
-                            <p>base toolbar in the header, used a table caption info</p>
+                            <h3>
+                                <i class="aweso-icon-table opaci35"></i>Product Management
+                            </h3>
                         </div>
                         <div class="row-fluid">
                             <div class="span12">
-                                <div class="widget widget-simple widget-table">
-                                    <table id="exampleDTB-2" class="table boo-table table-striped table-content table-hover">
-                                        <caption>
-                                            Default Table Caption - Title for table <span>Here text in span</span>
-                                        </caption>
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">ID <span class="column-sorter"></span></th>
-                                                <th scope="col">Name <span class="column-sorter"></span></th>
-                                                <th scope="col">City <span class="column-sorter"></span></th>
-                                                <th scope="col">Email <span class="column-sorter"></span></th>
-                                                <th scope="col">Date of birth <span class="column-sorter"></span></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Colin Nixon</td>
-                                                <td>Long Beach</td>
-                                                <td>semper@diamSeddiam.edu</td>
-                                                <td>02/10/1986</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Naida Bennett</td>
-                                                <td>Lockport</td>
-                                                <td>commodo@Curabiturconsequatlectus.ca</td>
-                                                <td>04/21/1959</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Danielle Myers</td>
-                                                <td>Bentonville</td>
-                                                <td>nunc.sed@liberoInteger.ca</td>
-                                                <td>12/11/1971</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Whitney Jones</td>
-                                                <td>Troy</td>
-                                                <td>Nunc@sedliberoProin.edu</td>
-                                                <td>08/09/1976</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Marvin Bell</td>
-                                                <td>Cody</td>
-                                                <td>aliquet@Craspellentesque.com</td>
-                                                <td>10/17/1979</td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Lucas Melendez</td>
-                                                <td>Plano</td>
-                                                <td>Maecenas.malesuada@Duismi.org</td>
-                                                <td>02/25/1967</td>
-                                            </tr>
-                                            <tr>
-                                                <td>7</td>
-                                                <td>Devin Harris</td>
-                                                <td>Altoona</td>
-                                                <td>dolor.sit@apurus.org</td>
-                                                <td>01/09/1990</td>
-                                            </tr>
-                                            <tr>
-                                                <td>8</td>
-                                                <td>Tucker Graves</td>
-                                                <td>Yorba Linda</td>
-                                                <td>libero.nec.ligula@hendrerita.ca</td>
-                                                <td>12/03/1962</td>
-                                            </tr>
-                                            <tr>
-                                                <td>9</td>
-                                                <td>Linus Carpenter</td>
-                                                <td>Attleboro</td>
-                                                <td>pellentesque.massa@feugiat.com</td>
-                                                <td>03/06/1975</td>
-                                            </tr>
-                                            <tr>
-                                                <td>10</td>
-                                                <td>Quinlan Lindsay</td>
-                                                <td>San Antonio</td>
-                                                <td>rhoncus@tristique.com</td>
-                                                <td>10/19/1963</td>
-                                            </tr>
-                                            <tr>
-                                                <td>11</td>
-                                                <td>Jolie Ryan</td>
-                                                <td>Yonkers</td>
-                                                <td>Proin@Utnec.edu</td>
-                                                <td>12/17/1969</td>
-                                            </tr>
-                                            <tr>
-                                                <td>12</td>
-                                                <td>Roanna Adkins</td>
-                                                <td>Wynne</td>
-                                                <td>egestas@massaIntegervitae.edu</td>
-                                                <td>07/20/1980</td>
-                                            </tr>
-                                            <tr>
-                                                <td>13</td>
-                                                <td>Berk Clemons</td>
-                                                <td>Madison</td>
-                                                <td>mus.Proin.vel@nibhQuisque.edu</td>
-                                                <td>09/10/1963</td>
-                                            </tr>
-                                            <tr>
-                                                <td>14</td>
-                                                <td>Tamara Stokes</td>
-                                                <td>Edmond</td>
-                                                <td>nec@orci.com</td>
-                                                <td>01/14/1981</td>
-                                            </tr>
-                                            <tr>
-                                                <td>15</td>
-                                                <td>Shoshana Hodges</td>
-                                                <td>Reading</td>
-                                                <td>nibh@molestieSedid.org</td>
-                                                <td>11/12/1986</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <!-- // BOO TABLE - DTB-2 -->
+                                <div id="grid" class="widget widget-simple widget-table" style="width: 100%; height: 250px;"></div>
+                                <br>
+                                <button class="w2ui-btn" onclick="w2ui.grid.selectAll();">Select All</button>
+                                <button class="w2ui-btn" onclick="w2ui.grid.selectNone();">Select None</button>
+                                <button class="w2ui-btn" onclick="w2alert(w2ui.grid.test());">Edit product</button>
+                                <button class="w2ui-btn" onclick="w2alert(w2ui.grid.test());">Add product</button>
+                                <button class="w2ui-btn" onclick="w2alert(w2ui.grid.test());">Delete product</button>
+                                <script> 
+                                    var products = @Html.Raw(Json.Encode(ViewBag.listProduct)); 
+                                    for (var item of products) {
+                                        delete item['Image'];
+                                        item.recid = item.Id;
+                                        delete item['Id'];
+                                    } 
 
-                                </div>
-                                <!-- // Widget -->
+                                    console.log(products)
+                                    $('#grid').w2grid({
+                                        name: 'grid',
+                                        show: {
+                                            toolbar: true,
+                                            footer: true
+                                        },
+                                        multiSearch: true,
+                                        searches: [
+                                            { field: 'recid', caption: 'ID ', type: 'text' },
+                                            { field: 'Id_Category', caption: 'ID Category', type: 'text' },
+                                            { field: 'Name', caption: 'Name product', type: 'text' },
+                                            { field: 'Price', caption: 'Price', type: 'int' },
+                                            { field: 'Description', caption: 'Description', type: 'text' },
+                                            { field: 'Quantity', caption: 'Quantity', type: 'int' }
+                                        ],
+                                        columns: [
+                                            { field: 'recid', caption: 'ID', size: '50px', sortable: true, size: '10%' },
+                                            { field: 'Id_Category', caption: 'ID Category', size: '10%', sortable: true },
+                                            { field: 'Name', caption: 'Name product', size: '20%', sortable: true },
+                                            { field: 'Price', caption: 'Price', size: '10%', sortable: true },
+                                            { field: 'Description', caption: 'Description', size: '60%' },
+                                            { field: 'Quantity', caption: 'Quantity', size: '8%' }
+                                        ],
+                                        records: products 
+                                    }); 
+                                </script>
 
                             </div>
-                            <!-- // Column -->
+                            <!-- // Widget -->
 
                         </div>
-                        <!-- // Example row -->
+                        <!-- // Column -->
 
-                    </section> 
                 </div>
-                <!-- // page content -->
-
+                <!-- // Example row -->
+                </section>
             </div>
-            <!-- // main-content -->
+            <!-- // page content -->
 
         </div>
-        <!-- // main-container  -->
+        <!-- // main-content -->
 
-        <footer id="footer-fix">
-            <div id="footer-sidebar" class="footer-sidebar">
-                <div class="navbar">
-                    <div class="btn-toolbar"> <a class="btn btn-glyph btn-link" href="javascript:void(0);"><i class="fontello-icon-up-open-1"></i></a> </div>
+    </div>
+    <!-- // main-container  -->
+
+    <footer id="footer-fix">
+        <div id="footer-sidebar" class="footer-sidebar">
+            <div class="navbar">
+                <div class="btn-toolbar"> <a class="btn btn-glyph btn-link" href="javascript:void(0);"><i class="fontello-icon-up-open-1"></i></a> </div>
+            </div>
+        </div>
+        <!-- // footer sidebar -->
+
+        <div id="footer-content" class="footer-content">
+            <div class="navbar navbar-inverse">
+                <div class="navbar-inner">
+                    <ul class="nav pull-left">
+                        <li class="divider-vertical hidden-phone"></li>
+                        <li><a id="btnToggleSidebar" class="btn-glyph fontello-icon-resize-full-2 tip hidden-phone" href="javascript:void(0);" title="show hide sidebar"></a></li>
+                        <li class="divider-vertical hidden-phone"></li>
+                        <li><a id="btnChangeSidebar" class="btn-glyph fontello-icon-login tip hidden-phone" href="javascript:void(0);" title="change sidebar position"></a></li>
+                        <li class="divider-vertical"></li>
+                        <li><a id="btnChangeSidebarColor" class="btn-glyph fontello-icon-palette tip" href="javascript:void(0);" title="change sidebar color"></a></li>
+                        <li class="divider-vertical"></li>
+                        <li><a class="btn-glyph fontello-icon-cw" href="javascript:void(0);"></a></li>
+                        <li class="divider-vertical"></li>
+                        <li><a class="fontello-icon-home-3" href="dashboard-one.html"></a></li>
+                        <li class="divider-vertical"></li>
+                    </ul>
+                    <ul class="nav pull-right">
+                        <li class="divider-vertical"></li>
+                        <li><a class="btn-glyph fontello-icon-help-2 tip" href="javascript:void(0);" title="help to page"></a></li>
+                        <li class="divider-vertical"></li>
+                        <li><a class="btn-glyph fontello-icon-cog-4 tip" href="javascript:void(0);" title="settings app"></a></li>
+                        <li class="divider-vertical"></li>
+                        <li><a id="btnLogout" class="btn-glyph fontello-icon-logout-1 tip" href="javascript:void(0);" title="logout"></a></li>
+                        <li class="divider-vertical"></li>
+                        <li><a id="btnScrollup" class="scrollup btn-glyph fontello-icon-up-open-1" href="javascript:void(0);"><span class="hidden-phone">Scroll</span></a></li>
+                    </ul>
                 </div>
             </div>
-            <!-- // footer sidebar -->
+        </div>
+        <!-- // footer content -->
 
-            <div id="footer-content" class="footer-content">
-                <div class="navbar navbar-inverse">
-                    <div class="navbar-inner">
-                        <ul class="nav pull-left">
-                            <li class="divider-vertical hidden-phone"></li>
-                            <li><a id="btnToggleSidebar" class="btn-glyph fontello-icon-resize-full-2 tip hidden-phone" href="javascript:void(0);" title="show hide sidebar"></a></li>
-                            <li class="divider-vertical hidden-phone"></li>
-                            <li><a id="btnChangeSidebar" class="btn-glyph fontello-icon-login tip hidden-phone" href="javascript:void(0);" title="change sidebar position"></a></li>
-                            <li class="divider-vertical"></li>
-                            <li><a id="btnChangeSidebarColor" class="btn-glyph fontello-icon-palette tip" href="javascript:void(0);" title="change sidebar color"></a></li>
-                            <li class="divider-vertical"></li>
-                            <li><a class="btn-glyph fontello-icon-cw" href="javascript:void(0);"></a></li>
-                            <li class="divider-vertical"></li>
-                            <li><a class="fontello-icon-home-3" href="dashboard-one.html"></a></li>
-                            <li class="divider-vertical"></li>
-                        </ul>
-                        <ul class="nav pull-right">
-                            <li class="divider-vertical"></li>
-                            <li><a class="btn-glyph fontello-icon-help-2 tip" href="javascript:void(0);" title="help to page"></a></li>
-                            <li class="divider-vertical"></li>
-                            <li><a class="btn-glyph fontello-icon-cog-4 tip" href="javascript:void(0);" title="settings app"></a></li>
-                            <li class="divider-vertical"></li>
-                            <li><a id="btnLogout" class="btn-glyph fontello-icon-logout-1 tip" href="javascript:void(0);" title="logout"></a></li>
-                            <li class="divider-vertical"></li>
-                            <li><a id="btnScrollup" class="scrollup btn-glyph fontello-icon-up-open-1" href="javascript:void(0);"><span class="hidden-phone">Scroll</span></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- // footer content -->
-
-        </footer>
-        <!-- // footer-fix  -->
-
+    </footer>
+    <!-- // footer-fix  -->
     </div>
     <!-- // page-container  -->
     <!-- hide inject elements-->

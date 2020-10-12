@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using OrderCoffee.Models;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -32,6 +33,16 @@ namespace OrderCoffee.Controllers
         {
             ViewBag.Message = "Your application description page.";
 
+            string querySelectProduct = "Select * from product";
+
+            
+            using (IDbConnection db = conn)
+            {
+                var listProduct = new List<Product>();
+                listProduct = db.Query<Product>(querySelectProduct).ToList();
+
+                ViewBag.listProduct = listProduct;
+            } 
             return View();
         }
 
@@ -44,8 +55,7 @@ namespace OrderCoffee.Controllers
 
         [HttpPost]
         public ActionResult Login(string id_login_email, string id_login_password)
-        {
-
+        { 
             string queryFindEmail = "Select * From dbo.Account Where  Email = '" + id_login_email + "'";
             string queryFindUserName = "Select * From dbo.Account Where UserName = '" + id_login_email + "'";
 
@@ -66,9 +76,27 @@ namespace OrderCoffee.Controllers
                 {
                     return View("AdminDashboard");
                 }
-            }
-            var tmp = id_login_email;
+            } 
             return View("Index");
+        }
+
+        public JsonResult getInfoListProduct()
+        {
+            var jr = new JsonResult();
+
+            string querySelectProduct = "Select * from product";
+
+            var listProduct = new List<Product>();
+            using(IDbConnection db = conn)
+            {
+                listProduct = db.Query<Product>(querySelectProduct).ToList();
+
+                jr.Data = new
+                {
+                    list = listProduct,
+                };
+            } 
+            return Json(jr, JsonRequestBehavior.AllowGet);
         }
     }
 }
