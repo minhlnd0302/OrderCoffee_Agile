@@ -185,17 +185,16 @@
                                 <br>
                                 <button class="w2ui-btn" onclick="w2ui.grid.selectAll();">Select All</button>
                                 <button class="w2ui-btn" onclick="w2ui.grid.selectNone();">Select None</button>
-                                <button class="w2ui-btn" onclick="w2alert(w2ui.grid.test());">Edit product</button>
+                                <button class="w2ui-btn" onclick="editProduct();">Edit product</button>
                                 <button class="w2ui-btn" onclick="w2alert(w2ui.grid.test());">Add product</button>
-                                <button class="w2ui-btn" onclick="w2alert(w2ui.grid.test());">Delete product</button>
+                                <button class="w2ui-btn" onclick="w2alert(w2ui.grid.test());">Remove product</button>
                                 <script> 
                                     var products = @Html.Raw(Json.Encode(ViewBag.listProduct)); 
                                     for (var item of products) {
                                         delete item['Image'];
                                         item.recid = item.Id;
                                         delete item['Id'];
-                                    } 
-
+                                    }  
                                     console.log(products)
                                     $('#grid').w2grid({
                                         name: 'grid',
@@ -222,6 +221,19 @@
                                         ],
                                         records: products 
                                     }); 
+
+                                    function editProduct() {
+                                        var productSelected = w2ui['grid'].getSelection();
+                                        if (productSelected.length > 1 || productSelected.length < 1) {
+                                            alert('Please choice a product !');
+                                            return;
+                                        }
+                                        console.log(productSelected)
+                                        var infoProductSelected = w2ui['grid'].records.filter(item => {
+                                            return item.recid == productSelected;
+                                        })  
+                                        console.log(infoProductSelected);
+                                    }
                                 </script>
 
                             </div>
