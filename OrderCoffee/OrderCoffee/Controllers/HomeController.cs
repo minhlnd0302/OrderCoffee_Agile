@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace OrderCoffee.Controllers
 {
@@ -51,9 +52,7 @@ namespace OrderCoffee.Controllers
                 ViewBag.listProduct = listProduct;
             }
             return View();
-        }
-
-
+        }  
         public ActionResult AdminDashboard()
         {
             ViewBag.Message = "Your contact page.";
@@ -121,16 +120,13 @@ namespace OrderCoffee.Controllers
             var categoryName = collection["CategoryName"];
 
             // ah dùng cái distionary đê lấy id_category nhe ah
-            var id_category = _dictNameCategoryToID[categoryName];
-
-
-            string queryUpdateProductt = "update product set id_category = '" + id_category + "', name = '" + Name + "', price = @Price, image = '" + Price + "', description = '" + Description + "', quantity = 0 where id = '" + Id + "'";
-
+            var id_Category = _dictNameCategoryToID[categoryName]; 
+             
             string queryUpdateProduct = "UPDATE product SET id_category = @id_category,name = @Name,price = @Price,image =@link ,description =@Description,quantity=@Quantity where id = @Id; ";
 
-            using (IDbConnection db = conn)
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))
             {
-                var affectedRows = db.Execute(queryUpdateProduct, new { id = Id, id_category = id_category, Name = Name, Price = Price, @link = "link", Description = Description, Quantity = 0 });
+                var affectedRows = db.Execute(queryUpdateProduct, new { id = Id, id_category = id_Category, Name = Name, Price = Price, link = "link", Description = Description, Quantity = 0 });
             }
 
             return Json(jr, JsonRequestBehavior.AllowGet);
@@ -141,10 +137,30 @@ namespace OrderCoffee.Controllers
             _UpdateDictionaryCategory();
             var jr = new JsonResult();
 
+            string Id = "";
             var Name = collection["Name"];
             var Price = collection["Price"];
             var Description = collection["Description"];
             var categoryName = collection["CategoryName"];
+            var categoryId = _dictNameCategoryToID[categoryName];
+
+            string querySelectMaxId = "SELECT MAX(SUBSTRING(id, 6, len(id) - 6 + 1)) AS ExtractString FROM product;";
+
+            using(IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))
+            {
+                string maxId = db.Query<string>(querySelectMaxId).First(); 
+                var newId = int.Parse(maxId) + 1; 
+                var tmp = "";
+                if (newId < 10) tmp = "00" + newId.ToString();
+                else if (newId < 100) tmp = "0" + newId.ToString(); 
+                Id =  "PROD_" + tmp;
+
+                string queryInsert = "Insert Into product (id, id_category, name, price, image, description, quantity) Values (@IdProduct, @IdCategory, @Name, @Price, @Image, @Description, @Quantity);";
+
+                var affectedRows = db.Execute(queryInsert, new { IdProduct = Id, IdCategory = categoryId, Name = Name, Price = Price, Image = "link", Description = Description, Quantity = 0 });
+
+                 
+            }
 
             return Json(jr, JsonRequestBehavior.AllowGet);
         }
@@ -156,14 +172,13 @@ namespace OrderCoffee.Controllers
 
             string queryRemoveProduct = "DELETE FROM product WHERE id = @idProduct";
 
-            using(IDbConnection db = conn)
+            using(IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))
             {
                 var affectedRows = db.Execute(queryRemoveProduct, new { idProduct = id });
             }
 
             return Json(jr, JsonRequestBehavior.AllowGet);
-        }
-
+        } 
         private void _UpdateDictionaryCategory()
         {
             if (_dictIDCategoryToName.Count == 0)

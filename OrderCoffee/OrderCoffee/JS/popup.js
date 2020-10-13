@@ -26,41 +26,43 @@
     var categoryName = listCategory.filter(item => {
         return item.Id == infoProduct.Id_Category;
     })  
-    $('#category').val(categoryName[0].Category_Name); 
+    $('#category').val(categoryName[0].Category_Name);
+    //$('#category').autocomplete({ source: getListCategoryName() });
 
 }
 
-function popupAddProduct(infoProduct) {
+function popupAddProduct() {
     w2popup.open({
         width: 580,
         height: 350,
         title: 'Add Product',
         body: '<div class="w2ui-centered" style="line-height: 1.8">' +
-            '     Fill in the information to change in the fields below<br/><br/>' +
+            '     Enter new product information !<br/><br/>' +
             '     Product Name:<input class="w2ui-input" style="margin-bottom: 5px" id="productname" ><br>' +
             '     Price : <input class="w2ui-input" style="margin-bottom: 5px" id="price" ><br>' +
             '     Description: <input class="w2ui-input" style="margin-bottom: 5px" id="description" ><br>' +
             '     Category: <input class="w2ui-input" style="margin-bottom: 5px" id="category" ><br>' +
             '  </div>',
-        buttons: '<button class="w2ui-btn" onclick="saveDataUpdate()">Save</button>' +
+        buttons: '<button class="w2ui-btn" onclick="addproduct()">Add</button>' +
             '<button class="w2ui-btn" onclick="w2popup.close()">Cancel</button>'
-    });
+    }); 
 
-    debugger
-    infoProduct = infoProduct[0];
-
-    $('#productname').val(infoProduct.Name);
-    $('#price').val(infoProduct.Price);
-    $('#description').val(infoProduct.Description);
-
-    var listCategory = JSON.parse(sessionStorage.getItem('listCategory'));
-
-    var categoryName = listCategory.filter(item => {
-        return item.Id == infoProduct.Id_Category;
-    })
-    $('#category').val(categoryName[0].Category_Name);
+    
 
 }
+
+function addproduct() {
+    var dataNewProduct = getDataUpdate();
+    var postUrl = '/Home/addProduct'
+
+    request(postUrl, dataNewProduct).then(res => {
+        console.log("OK");
+        w2popup.close()
+    })
+    console.log(dataNewProduct)
+}
+
+
 
 function showConfirmRemove() {
     debugger
@@ -138,6 +140,17 @@ function saveDataUpdate() {
         }
     })
 
+    w2popup.close()
+
 
 }
 
+function getListCategoryName() {
+    var listCategory = JSON.parse(sessionStorage.getItem('listCategory'));
+
+    listCategory = listCategory.map(item => {
+        return item.Category_Name;
+    })
+
+    return listCategory;
+}

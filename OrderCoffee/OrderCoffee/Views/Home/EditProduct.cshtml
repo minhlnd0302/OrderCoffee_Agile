@@ -188,7 +188,7 @@
                                 <button class="w2ui-btn" onclick="w2ui.grid.selectAll();">Select All</button>
                                 <button class="w2ui-btn" onclick="w2ui.grid.selectNone();">Select None</button>
                                 <button class="w2ui-btn" onclick="editProduct();">Edit product</button>
-                                <button class="w2ui-btn" onclick="w2alert(w2ui.grid.test());">Add product</button>
+                                <button class="w2ui-btn" onclick="addProduct();">Add product</button>
                                 <button class="w2ui-btn" onclick="removeProduct();">Remove product</button>
                                 <script> 
                                     var products = @Html.Raw(Json.Encode(ViewBag.listProduct)); 
@@ -226,9 +226,12 @@
                                             { field: 'Quantity', caption: 'Quantity', size: '8%' }
                                         ],
                                         records: products 
-                                    }); 
+                                    });  
 
-                                    
+                                    function addProduct() {
+                                        debugger
+                                        popupAddProduct();
+                                    }
 
                                     function editProduct() {
                                         var productSelected = w2ui['grid'].getSelection();
