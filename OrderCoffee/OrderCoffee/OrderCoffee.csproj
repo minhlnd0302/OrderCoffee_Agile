@@ -721,6 +721,7 @@
     <Content Include="Images_product\Raspberry Mocha.jpg" />
     <Content Include="Images_product\Vanilla Latte.jpg" />
     <Content Include="Images_product\White Mocha.jpg" />
+    <Content Include="JS\popup.js" />
     <Content Include="JS\requestData.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
