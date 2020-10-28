@@ -146,11 +146,9 @@ function saveDataUpdate() {
 }
 
 function getListCategoryName() {
-    var listCategory = JSON.parse(sessionStorage.getItem('listCategory'));
-
+    var listCategory = JSON.parse(sessionStorage.getItem('listCategory')); 
     listCategory = listCategory.map(item => {
         return item.Category_Name;
-    })
-
+    }) 
     return listCategory;
 }

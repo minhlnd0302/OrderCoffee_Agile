@@ -88,6 +88,19 @@ namespace OrderCoffee.Controllers
             return View("Index");
         }
 
+        [HttpPost]
+        public ActionResult Registration(string id_name, string id_username, string id_phone, string id_email_address, string password, string confirm_password)
+        {
+            string queryInsert = "Insert Into account (username, name, password, number, email, roles) values (@username, @name, @password , @number, @email, @roles);";
+
+
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))
+            { 
+                var affectedRows = db.Execute(queryInsert, new {username = id_username, name = id_name, password = password, number = id_phone, email = id_email_address, roles = 2 });
+                 
+            }
+            return View("Index");
+        }
         public JsonResult getInfoListProduct()
         {
             var jr = new JsonResult();
