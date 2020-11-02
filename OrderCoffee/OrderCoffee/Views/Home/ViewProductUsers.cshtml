@@ -52,7 +52,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="~/assets/ico/apple-touch-icon-57-precomposed.png">
-     
+
 </head>
 
 <body class="sidebar-left ">
@@ -129,8 +129,8 @@
                     <div class="media profile">
                         <div class="media-thumb media-left thumb-bordereb"> <a class="img-shadow" href="javascript:void(0);"><img class="thumb" src="~/assets/img/demo/demo-avatar9604.jpg"></a> </div>
                         <div class="media-body">
-                            <h5 class="media-heading"> @TempData["name"] <small>as Administrator</small></h5>
-                            @*<p class="data">Last Access: 16 May 15:30</p>*@
+                            <h5 class="media-heading"> @TempData["name"] <small>as Users</small></h5>
+                            @*<p class="data">Last Access: 2 Nov 7:20</p>*@
                         </div>
                     </div>
                 </div>
@@ -144,16 +144,6 @@
                             <li> <a href="dashboard-two.html"> <i class="fontello-icon-right-dir"></i> <span class="hidden-tablet">Dashboard</span> Demo 2 </a> </li>
                         </ul>
                     </li>
-                    <!-- // item accordionMenu Dashboard -->
-                    <li class="accordion-group">
-                        <div class="accordion-heading">
-                            <a href="/Home/EditProduct" data-parent="#mainSideMenu" class="accordion-toggle">
-                                <span class="item-icon aweso-icon-list-alt"></span>
-                                Manager
-                            </a>
-                        </div>
-                    </li>
-
                 </ul>
                 <!-- // sidebar menu -->
 
@@ -174,97 +164,7 @@
                 </div>
                 <!-- // page head -->
 
-                <div id="page-content" class="page-content">
-                    <section>
-                        <div class="page-header">
-                            <h3>
-                                <i class="aweso-icon-table opaci35"></i>Product Management
-                            </h3>
-                        </div>
-                        <div class="row-fluid">
-                            <div class="span12">
-                                <div id="grid" class="widget widget-simple widget-table" style="width: 100%; height: 250px;"></div>
-                                <br>
-                                <button class="w2ui-btn" onclick="w2ui.grid.selectAll();">Select All</button>
-                                <button class="w2ui-btn" onclick="w2ui.grid.selectNone();">Select None</button>
-                                <button class="w2ui-btn" onclick="editProduct();">Edit product</button>
-                                <button class="w2ui-btn" onclick="addProduct();">Add product</button>
-                                <button class="w2ui-btn" onclick="removeProduct();">Remove product</button>
-                                <script> 
-                                    var products = @Html.Raw(Json.Encode(ViewBag.listProduct)); 
-                                    var listCategory = @Html.Raw(Json.Encode(ViewBag.listCategory));
-
-                                    sessionStorage.setItem('listCategory', JSON.stringify(listCategory));
-
-                                    for (var item of products) {
-                                        delete item['Image'];
-                                        item.recid = item.Id;
-                                        delete item['Id'];
-                                    }  
-                                    console.log(products)
-                                    $('#grid').w2grid({
-                                        name: 'grid',
-                                        show: {
-                                            toolbar: true,
-                                            footer: true
-                                        },
-                                        multiSearch: true,
-                                        searches: [
-                                            { field: 'recid', caption: 'ID ', type: 'text' },
-                                            { field: 'Id_Category', caption: 'ID Category', type: 'text' },
-                                            { field: 'Name', caption: 'Name product', type: 'text' },
-                                            { field: 'Price', caption: 'Price', type: 'int' },
-                                            { field: 'Description', caption: 'Description', type: 'text' },
-                                            { field: 'Quantity', caption: 'Quantity', type: 'int' }
-                                        ],
-                                        columns: [
-                                            { field: 'recid', caption: 'ID', size: '50px', sortable: true, size: '10%' },
-                                            { field: 'Id_Category', caption: 'ID Category', size: '10%', sortable: true },
-                                            { field: 'Name', caption: 'Name product', size: '20%', sortable: true },
-                                            { field: 'Price', caption: 'Price', size: '10%', sortable: true },
-                                            { field: 'Description', caption: 'Description', size: '60%' },
-                                            { field: 'Quantity', caption: 'Quantity', size: '8%' }
-                                        ],
-                                        records: products 
-                                    });  
-
-                                    function addProduct() {
-                                        debugger
-                                        popupAddProduct();
-                                    }
-
-                                    function editProduct() {
-                                        var productSelected = w2ui['grid'].getSelection();
-                                        if (productSelected.length > 1 || productSelected.length < 1) {
-                                            alert('Please choice a product !');
-                                            return;
-                                        }
-                                        
-                                        var infoProductSelected = w2ui['grid'].records.filter(item => {
-                                            return item.recid == productSelected;
-                                        })
-                                        debugger
-                                        console.log(infoProductSelected);
-
-                                        sessionStorage.setItem('idProductCurrent', infoProductSelected[0].recid);
-
-                                        popupEditProduct(infoProductSelected);
-                                    }
-
-                                    function removeProduct() { 
-                                        var productSelected = w2ui['grid'].getSelection();
-                                        sessionStorage.setItem('idProductCurrent', productSelected);
-                                        showConfirmRemove();
-                                    }
-                                </script>
-
-                            </div>
-                            <!-- // Widget -->
-
-                        </div>
-                        <!-- // Column -->
-
-                </div>
+                
                 <!-- // Example row -->
                 </section>
             </div>

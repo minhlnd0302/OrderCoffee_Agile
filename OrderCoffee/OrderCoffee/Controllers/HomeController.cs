@@ -33,9 +33,22 @@ namespace OrderCoffee.Controllers
             return View();
         }
 
+        public ActionResult ViewProductUsers()
+        {
+            string name;
+
+            if (TempData.ContainsKey("name"))
+                name = TempData["name"].ToString();
+            TempData.Keep();
+
+            return View();
+        }
+
         public ActionResult EditProduct()
         {
             ViewBag.Message = "Your application description page.";
+
+            string name;
 
             string querySelectProduct = "Select * from product";
             string querySelectCategory = "Select * from categories";
@@ -51,6 +64,11 @@ namespace OrderCoffee.Controllers
                 ViewBag.listCategory = listCategory;
                 ViewBag.listProduct = listProduct;
             }
+
+            if (TempData.ContainsKey("name"))
+                name = TempData["name"].ToString();
+            TempData.Keep();
+
             return View();
         }  
         public ActionResult AdminDashboard()
@@ -79,9 +97,20 @@ namespace OrderCoffee.Controllers
 
             if (user != null)
             {
+                TempData["name"] = user.UserName;
+                TempData.Keep();
+
                 if (user.PassWord == id_login_password)
                 {
-                    return View("EditProduct");
+                    switch(user.Roles)
+                    {
+                        case 1:
+                            return View("EditProduct");
+                        case 2:
+                            return View("ViewProductUsers");
+                        default:
+                            return View("Index");
+                    }
                     //EditProduct();
                 }
             }
