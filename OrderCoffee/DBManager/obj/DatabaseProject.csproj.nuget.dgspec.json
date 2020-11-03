@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\OrderCoffee_Agile\\OrderCoffee\\DBManager\\DatabaseProject.csproj": {}
+    "E:\\agile\\OrderCoffee_Agile\\OrderCoffee\\DBManager\\DatabaseProject.csproj": {}
   },
   "projects": {
-    "E:\\OrderCoffee_Agile\\OrderCoffee\\DBManager\\DatabaseProject.csproj": {
+    "E:\\agile\\OrderCoffee_Agile\\OrderCoffee\\DBManager\\DatabaseProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\OrderCoffee_Agile\\OrderCoffee\\DBManager\\DatabaseProject.csproj",
+        "projectUniqueName": "E:\\agile\\OrderCoffee_Agile\\OrderCoffee\\DBManager\\DatabaseProject.csproj",
         "projectName": "DatabaseProject",
-        "projectPath": "E:\\OrderCoffee_Agile\\OrderCoffee\\DBManager\\DatabaseProject.csproj",
+        "projectPath": "E:\\agile\\OrderCoffee_Agile\\OrderCoffee\\DBManager\\DatabaseProject.csproj",
         "packagesPath": "C:\\Users\\Minhlnd\\.nuget\\packages\\",
-        "outputPath": "E:\\OrderCoffee_Agile\\OrderCoffee\\DBManager\\obj\\",
+        "outputPath": "E:\\agile\\OrderCoffee_Agile\\OrderCoffee\\DBManager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Minhlnd\\AppData\\Roaming\\NuGet\\NuGet.Config",

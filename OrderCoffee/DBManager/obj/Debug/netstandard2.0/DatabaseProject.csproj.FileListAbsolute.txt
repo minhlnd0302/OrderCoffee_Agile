@@ -7,3 +7,12 @@ E:\OrderCoffee_Agile\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProj
 E:\OrderCoffee_Agile\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.csproj.CoreCompileInputs.cache
 E:\OrderCoffee_Agile\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.dll
 E:\OrderCoffee_Agile\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.pdb
+E:\agile\OrderCoffee_Agile\OrderCoffee\DBManager\bin\Debug\netstandard2.0\DatabaseProject.deps.json
+E:\agile\OrderCoffee_Agile\OrderCoffee\DBManager\bin\Debug\netstandard2.0\DatabaseProject.dll
+E:\agile\OrderCoffee_Agile\OrderCoffee\DBManager\bin\Debug\netstandard2.0\DatabaseProject.pdb
+E:\agile\OrderCoffee_Agile\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.csprojAssemblyReference.cache
+E:\agile\OrderCoffee_Agile\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.AssemblyInfoInputs.cache
+E:\agile\OrderCoffee_Agile\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.AssemblyInfo.cs
+E:\agile\OrderCoffee_Agile\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.csproj.CoreCompileInputs.cache
+E:\agile\OrderCoffee_Agile\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.dll
+E:\agile\OrderCoffee_Agile\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.pdb
