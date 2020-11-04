@@ -23,6 +23,7 @@ namespace OrderCoffee.Controllers
                 var listProduct = new List<Product>(); 
                 listProduct = db.Query<Product>(querySelectProduct).ToList();  
                 ViewBag.listProduct = listProduct;
+                ViewBag.count = listProduct.Count();
             }
             return View();
         }
