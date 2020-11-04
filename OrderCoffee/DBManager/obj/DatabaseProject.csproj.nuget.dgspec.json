@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CAFE\\CODE\\OrderCoffee\\DBManager\\DatabaseProject.csproj": {}
+    "E:\\agile\\OrderCoffee_Agile\\OrderCoffee\\DBManager\\DatabaseProject.csproj": {}
   },
   "projects": {
-    "D:\\CAFE\\CODE\\OrderCoffee\\DBManager\\DatabaseProject.csproj": {
+    "E:\\agile\\OrderCoffee_Agile\\OrderCoffee\\DBManager\\DatabaseProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CAFE\\CODE\\OrderCoffee\\DBManager\\DatabaseProject.csproj",
+        "projectUniqueName": "E:\\agile\\OrderCoffee_Agile\\OrderCoffee\\DBManager\\DatabaseProject.csproj",
         "projectName": "DatabaseProject",
-        "projectPath": "D:\\CAFE\\CODE\\OrderCoffee\\DBManager\\DatabaseProject.csproj",
-        "packagesPath": "C:\\Users\\Mike\\.nuget\\packages\\",
-        "outputPath": "D:\\CAFE\\CODE\\OrderCoffee\\DBManager\\obj\\",
+        "projectPath": "E:\\agile\\OrderCoffee_Agile\\OrderCoffee\\DBManager\\DatabaseProject.csproj",
+        "packagesPath": "C:\\Users\\Minhlnd\\.nuget\\packages\\",
+        "outputPath": "E:\\agile\\OrderCoffee_Agile\\OrderCoffee\\DBManager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Mike\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Minhlnd\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +55,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
