@@ -16,3 +16,12 @@ E:\agile\OrderCoffee_Agile\OrderCoffee\DBManager\obj\Debug\netstandard2.0\Databa
 E:\agile\OrderCoffee_Agile\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.csproj.CoreCompileInputs.cache
 E:\agile\OrderCoffee_Agile\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.dll
 E:\agile\OrderCoffee_Agile\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.pdb
+D:\CAFE\CODE\OrderCoffee\DBManager\bin\Debug\netstandard2.0\DatabaseProject.deps.json
+D:\CAFE\CODE\OrderCoffee\DBManager\bin\Debug\netstandard2.0\DatabaseProject.dll
+D:\CAFE\CODE\OrderCoffee\DBManager\bin\Debug\netstandard2.0\DatabaseProject.pdb
+D:\CAFE\CODE\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.csprojAssemblyReference.cache
+D:\CAFE\CODE\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.AssemblyInfoInputs.cache
+D:\CAFE\CODE\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.AssemblyInfo.cs
+D:\CAFE\CODE\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.csproj.CoreCompileInputs.cache
+D:\CAFE\CODE\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.dll
+D:\CAFE\CODE\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.pdb

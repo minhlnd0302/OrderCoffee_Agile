@@ -105,15 +105,18 @@ namespace OrderCoffee.Controllers
                     switch(user.Roles)
                     {
                         case 1:
+                            // login of admin
                             return View("EditProduct");
                         case 2:
-                            return View("ViewProductUsers");
+                            // login of user
+                            return View("../Products/Index");
                         default:
+                            // fail
                             return View("Index");
                     }
-                    //EditProduct();
                 }
             }
+            // null
             return View("Index");
         }
 

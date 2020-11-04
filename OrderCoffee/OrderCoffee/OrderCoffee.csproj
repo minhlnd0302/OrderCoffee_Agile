@@ -896,6 +896,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\ViewProductUsers.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Products\SignIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
