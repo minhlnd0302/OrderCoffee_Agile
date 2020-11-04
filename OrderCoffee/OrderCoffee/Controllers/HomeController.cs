@@ -73,7 +73,7 @@ namespace OrderCoffee.Controllers
         }  
         public ActionResult AdminDashboard()
         {
-            ViewBag.Message = "Your contact page.";
+            //ViewBag.Message = "Your contact page.";
 
             return View();
         }
@@ -106,18 +106,27 @@ namespace OrderCoffee.Controllers
                     {
                         case 1:
                             // login of admin
-                            return View("EditProduct");
+                            return RedirectToAction("EditProduct");
                         case 2:
                             // login of user
-                            return View("../Products/Index");
+                            return RedirectToAction("../Products/Index");
                         default:
                             // fail
-                            return View("Index");
+                            ViewBag.error = "Login failed";
+                            return RedirectToAction("Index");
                     }
                 }
+                else
+                {
+                    ViewBag.error = "Login failed";
+                }
+            }
+            else
+            {
+                ViewBag.error = "Login failed";
             }
             // null
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -131,7 +140,7 @@ namespace OrderCoffee.Controllers
                 var affectedRows = db.Execute(queryInsert, new {username = id_username, name = id_name, password = password, number = id_phone, email = id_email_address, roles = 2 });
                  
             }
-            return View("Index");
+            return RedirectToAction("Index");
         }
         public JsonResult getInfoListProduct()
         {
