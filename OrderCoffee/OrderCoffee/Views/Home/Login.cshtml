@@ -1,0 +1,156 @@
+﻿@model OrderCoffee.Models.Account
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    <div id="main-container">
+        <div id="main-content" class="main-content container">
+            <div id="main-content" class="main-content container">
+                <div class="signin-content">
+                    <h1 class="welcome text-center" style="line-height: 0.6;color: #4da6ff ">
+                        <span style="margin-left: -45px;color: #a0a0ac">Welcome to</span><br />
+                        Coffee __TTeam@*<small>admin panel</small>*@
+                    </h1>
+                    <div class="well well-black well-impressed">
+                        <div class="tab-content overflow">
+                            <div class="tab-pane fade in active" id="login">
+                                <h3 class="no-margin-top"><i class="fontello-icon-user-4"></i> Sign in</h3>
+
+                                <form class="form-tied margin-00" method="post" action="/Home/Login" name="login_form">
+                                    <fieldset>
+                                        <legend class="two"><span>Legend</span></legend>
+                                        <ul>
+                                            <li>
+                                                <input id="idLogin" class="input-block-level" type="text" name="id_login_email" placeholder="email">
+                                            </li>
+                                            <li>
+                                                <input id="idPassword" class="input-block-level" type="password" name="id_login_password" placeholder="password">
+                                            </li>
+                                            @if (ViewBag.error != null)
+                                            {
+                                                <span class="badge badge-danger">@ViewBag.error</span>
+                                            }
+                                        </ul>
+                                        <button type="submit" class="btn btn-yellow btn-block btn-large">SIGN IN</button>
+                                        <hr class="margin-xm">
+                                        <label class="checkbox pull-left">
+                                            <input id="remember" class="checkbox" type="checkbox">
+                                            Remember me
+                                        </label>
+                                        <a href="#forgot" class="pull-right link" data-toggle="tab">Forgot Password?</a>
+                                    </fieldset>
+                                </form>
+
+                                <!-- // form -->
+
+                            </div>
+                            <!-- // Tab Login -->
+
+                            <div class="tab-pane fade" id="forgot">
+                                <h3 class="no-margin-top">Forgot your password?</h3>
+                                <form class="margin-00" method="post" action="dashboard-one.html" name="forgot_password">
+                                    <p class="note">Enter your e-mail address, we will send you an e-mail code for password reset.</p>
+                                    <input id="email" class="input-block-level" type="email" name="id_email_forgot" placeholder="your email">
+                                    <p class="text-center">or</p>
+                                    <input id="email" class="input-block-level" type="tel" name="id_phone_forgot" placeholder="number phone">
+                                    <hr class="margin-xm">
+                                    <button type="submit" class="btn btn-yellow">Submit</button>
+                                    <p>Have you remembered? <a href="#login" class="pull-right link" data-toggle="tab">Try to log in again.</a></p>
+                                </form>
+                                <!-- // form -->
+
+                            </div>
+                            <!-- // Tab Forgot -->
+
+                            <div class="tab-pane fade" id="register">
+                                <h3 class="no-margin-top"><i class="fontello-icon-users"></i> New User Registration</h3>
+                                <form class="form-tied margin-00" method="post" action="/Home/Registration" name="login_form">
+                                    <fieldset>
+                                        <legend class="two"><span>Account information</span></legend>
+                                        <ul>
+                                            <li>
+                                                @*<input id="idLogin" class="input-block-level" type="text" name="id_name" placeholder="name">*@
+                                                @Html.TextBoxFor(m => m.FullName, "", new { @class = "input-block-level", @type = "text", @placeholder = "name" })
+                                                @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "badge badge-danger" })
+                                            </li>
+                                            <li>
+                                                @*<input id="idLogin" class="input-block-level" type="text" name="id_username" placeholder="username">*@
+                                                @Html.TextBoxFor(m => m.UserName, "", new { @class = "input-block-level", @type = "text", @placeholder = "user name" })
+                                                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "badge badge-danger" })
+                                            </li>
+                                            <li>
+                                                @*<input id="idLogin" class="input-block-level" type="text" name="id_email_address" placeholder="email address">*@
+                                                @Html.TextBoxFor(m => m.Email, "", new { @class = "input-block-level", @type = "text", @placeholder = "email address" })
+                                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "badge badge-danger" })
+                                                @if (ViewBag.error != null)
+                                                {
+                                                    <span class="badge badge-danger">@ViewBag.error</span>
+                                                }
+                                            </li>
+                                            <li>
+                                                @*<input id="idLogin" class="input-block-level" type="text" name="id_phone" placeholder="your phone">*@
+                                                @Html.TextBoxFor(m => m.PhoneNumber, "", new { @class = "input-block-level", @type = "text", @placeholder = "your phone" })
+                                                @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "badge badge-danger" })
+                                            </li>
+                                        </ul>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend class="two"><span>Password</span></legend>
+                                        <ul>
+                                            <li>
+                                                @*<input id="idPassw" class="input-block-level" type="password" name="password" placeholder="password">*@
+                                                @Html.TextBoxFor(m => m.PassWord, "", new { @class = "input-block-level", @type = "password", @placeholder = "password" })
+                                                @Html.ValidationMessageFor(m => m.PassWord, "", new { @class = "badge badge-danger" })
+                                            </li>
+                                            <li>
+                                                <input id="idPassw" class="input-block-level" type="password" name="confirm_password" placeholder="confirm password">
+
+                                            </li>
+                                        </ul>
+                                        <button type="submit" class="btn btn-green btn-block btn-large">REGISTER TO BOO</button>
+                                        <hr class="margin-xm">
+                                        <p>Have you remembered? <a href="#login" class="pull-right link" data-toggle="tab">Try to log in again.</a></p>
+                                    </fieldset>
+                                </form>
+                                <!-- // form -->
+
+                            </div>
+                            <!-- // Tab Forgot -->
+
+                        </div>
+                    </div>
+                    <!-- // Well-Black -->
+
+                    <a href="#register" class="btn btn-block btn-yellow btn-large f12" data-toggle="tab">No account yet? Register now for free!</a>
+                    <div class="web-description">
+                        <h5>Copyright &copy; 2012 companypage.com</h5>
+                        <p>
+                            Backend and Frontend interface for web &amp; mobile development. <br />
+                            All rights reserved.
+                        </p>
+                    </div>
+
+                    @*<ul class="nav nav-center well well-impressed well-small" style="margin-top: 90px">
+                            <li class="active"><a href="login-01.html" class="link">Black</a></li>
+                            <li class="divider-vertical line"></li>
+                            <li><a href="index.html" class="link">Nice</a></li>
+                            <li class="divider-vertical line"></li>
+                            <li><a href="login-02.html" class="link">Base</a></li>
+                            <li class="divider-vertical line"></li>
+                            <li><a href="login-03.html" class="link">SignIn</a></li>
+                        </ul>*@
+                </div>
+                <!-- // sign-content -->
+
+
+
+            </div>
+            <!-- // main-content -->
+
+        </div>
+        <!-- // main-container  -->
+
+    </div>
+}
