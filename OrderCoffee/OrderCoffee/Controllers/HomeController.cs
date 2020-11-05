@@ -132,10 +132,16 @@ namespace OrderCoffee.Controllers
                 using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))
                 {
                     user = db.Query<Account>(queryFindUserName).FirstOrDefault();
-                    if (user.UserName == _accounts.UserName) return View();
+                    if (user != null)
+                    {
+                        if (user.UserName == _accounts.UserName) return View();
+                    }
 
                     user = db.Query<Account>(queryFindEmail).FirstOrDefault();
-                    if (user.Email == _accounts.Email) return View();
+                    if (user != null)
+                    {
+                        if (user.Email == _accounts.Email) return View();
+                    }
 
                     var affectedRows = db.Execute(queryInsert, new
                     {
