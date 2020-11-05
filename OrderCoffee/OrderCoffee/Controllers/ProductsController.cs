@@ -36,5 +36,11 @@ namespace OrderCoffee.Controllers
             }
             return View();
         }
+
+        public ActionResult viewCart()
+        {
+            
+            return View();
+        }
     }
 }

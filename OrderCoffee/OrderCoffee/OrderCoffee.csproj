@@ -898,6 +898,7 @@
     <Content Include="Views\Home\ViewProductUsers.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\SignIn.cshtml" />
+    <Content Include="Views\Products\viewCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
