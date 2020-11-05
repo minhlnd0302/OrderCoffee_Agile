@@ -98,6 +98,8 @@ namespace OrderCoffee.Controllers
                     if (user.PassWord == id_login_password)
                     {
                         ViewBag.nameLogin = user.UserName;
+
+
                         switch (user.Roles)
                         {
                             case 1:
@@ -105,6 +107,27 @@ namespace OrderCoffee.Controllers
                                 return View("EditProduct");
                             case 2:
                                 // login of user
+                                {
+                                    string querySelectProduct = "Select * from product";
+                                    string name = ViewBag.nameLogin;
+                                    string linkIndex = ViewBag.linkTitleLogin;
+
+                                    using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))
+                                    {
+                                        var listProduct = new List<Product>();
+                                        listProduct = db.Query<Product>(querySelectProduct).ToList();
+                                        ViewBag.listProduct = listProduct;
+                                        ViewBag.count = listProduct.Count();
+
+                                        if (name == null || name == "Sign In")
+                                        {
+                                            ViewBag.nameLogin = "Sign In";
+                                            ViewBag.linkTitleLogin = "";
+                                        }
+                                    }
+                                }
+                                
+
                                 return View("../Products/Index");
                             default:
                                 // fail
