@@ -90,7 +90,20 @@
                             <ul>
                                 <li><a href="register.html">My Account</a></li>
                                 <li><a href="checkout.html">Checkout</a></li>
-                                <li><a href="~/Home/Index">Sign in</a></li>
+                                @{ 
+                                    var link = ViewBag.linkTitleLogin;
+                                    var titleLogin = ViewBag.nameLogin;
+
+                                    if (titleLogin != "Sign In" && titleLogin != null)
+                                    {
+                                        ViewBag.nameLogin = "Logout";
+                                    }
+                                    else
+                                    {
+                                        ViewBag.nameLogin = titleLogin;
+                                    }
+                                }
+                                <li><a href="~/Home/Index">@ViewBag.nameLogin</a></li>
                             </ul>
                         </div>
                     </div>

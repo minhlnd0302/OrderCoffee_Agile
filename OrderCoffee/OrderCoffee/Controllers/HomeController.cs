@@ -33,16 +33,6 @@ namespace OrderCoffee.Controllers
             return View();
         }
 
-        public ActionResult ViewProductUsers()
-        {
-            string name;
-
-            if (TempData.ContainsKey("name"))
-                name = TempData["name"].ToString();
-            TempData.Keep();
-
-            return View();
-        }
 
         public ActionResult EditProduct()
         {
@@ -65,10 +55,6 @@ namespace OrderCoffee.Controllers
                 ViewBag.listProduct = listProduct;
             }
 
-            if (TempData.ContainsKey("name"))
-                name = TempData["name"].ToString();
-            TempData.Keep();
-
             return View();
         }  
         public ActionResult AdminDashboard()
@@ -78,60 +64,101 @@ namespace OrderCoffee.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Login(string id_login_email, string id_login_password)
+        public ActionResult Login ()
         {
-            string queryFindEmail = "Select * From dbo.Account Where  Email = '" + id_login_email + "'";
-            string queryFindUserName = "Select * From dbo.Account Where UserName = '" + id_login_email + "'";
+            return View();
+        }
 
-            var user = new Account();
-            using (IDbConnection db = conn)
-            {
-                user = db.Query<Account>(queryFindUserName).FirstOrDefault();
-
-                if (user == null)
-                {
-                    user = db.Query<Account>(queryFindEmail).FirstOrDefault();
-                }
-            }
-
-            if (user != null)
-            {
-                TempData["name"] = user.UserName;
-                TempData.Keep();
-
-                if (user.PassWord == id_login_password)
-                {
-                    switch(user.Roles)
-                    {
-                        case 1:
-                            // login of admin
-                            return View("EditProduct");
-                        case 2:
-                            // login of user
-                            return View("../Products/Index");
-                        default:
-                            // fail
-                            return View("Index");
-                    }
-                }
-            }
-            // null
-            return View("Index");
+        public ActionResult Registration ()
+        {
+            return View();
         }
 
         [HttpPost]
-        public ActionResult Registration(string id_name, string id_username, string id_phone, string id_email_address, string password, string confirm_password)
+        public ActionResult Login(string id_login_email, string id_login_password)
         {
-            string queryInsert = "Insert Into account (username, name, password, number, email, roles) values (@username, @name, @password , @number, @email, @roles);";
+            if (id_login_email != string.Empty && id_login_password != string.Empty)
+            {
+                string queryFindEmail = "Select * From dbo.Account Where Email = '" + id_login_email + "'";
+                string queryFindUserName = "Select * From dbo.Account Where UserName = '" + id_login_email + "'";
 
+                var user = new Account();
+                using (IDbConnection db = conn)
+                {
+                    user = db.Query<Account>(queryFindUserName).FirstOrDefault();
 
-            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))
-            { 
-                var affectedRows = db.Execute(queryInsert, new {username = id_username, name = id_name, password = password, number = id_phone, email = id_email_address, roles = 2 });
-                 
+                    if (user == null)
+                    {
+                        user = db.Query<Account>(queryFindEmail).FirstOrDefault();
+                    }
+                }
+
+                if (user != null)
+                {
+                    if (user.PassWord == id_login_password)
+                    {
+                        ViewBag.nameLogin = user.UserName;
+                        switch (user.Roles)
+                        {
+                            case 1:
+                                // login of admin
+                                return View("EditProduct");
+                            case 2:
+                                // login of user
+                                return View("../Products/Index");
+                            default:
+                                // fail
+                                break;
+                        }
+                    }
+                }
             }
-            return View("Index");
+
+            ViewBag.error = "Login failed";
+            // null
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Registration(Account _accounts)
+        {
+            if (_accounts.UserName != null && _accounts.FullName != null && _accounts.Email != null && _accounts.PassWord != null && _accounts.PhoneNumber != null)
+            {
+                string queryInsert = "Insert Into account (username, name, password, number, email, roles) values (@username, @name, @password , @number, @email, @roles);";
+                string queryFindEmail = "Select * From dbo.Account Where Email = '" + _accounts.Email + "'";
+                string queryFindUserName = "Select * From dbo.Account Where UserName = '" + _accounts.UserName + "'";
+
+                var user = new Account();
+                using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))
+                {
+                    user = db.Query<Account>(queryFindUserName).FirstOrDefault();
+                    if (user != null)
+                    {
+                        if (user.UserName == _accounts.UserName) return View();
+                    }
+
+                    user = db.Query<Account>(queryFindEmail).FirstOrDefault();
+                    if (user != null)
+                    {
+                        if (user.Email == _accounts.Email) return View();
+                    }
+
+                    var affectedRows = db.Execute(queryInsert, new
+                    {
+                        username = _accounts.UserName,
+                        name = _accounts.FullName,
+                        password = _accounts.PassWord,
+                        number = _accounts.PhoneNumber,
+                        email = _accounts.Email,
+                        roles = 2
+                    });
+
+                }
+                return RedirectToAction("Index");
+            }
+
+            // call action register
+            return View();
         }
         public JsonResult getInfoListProduct()
         {

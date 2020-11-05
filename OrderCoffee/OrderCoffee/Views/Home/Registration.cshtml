@@ -1,7 +1,6 @@
 ﻿@model OrderCoffee.Models.Account
-
 @{
-    ViewBag.Title = "Login";
+    ViewBag.Title = "Registration";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -16,7 +15,7 @@
                     </h1>
                     <div class="well well-black well-impressed">
                         <div class="tab-content overflow">
-                            <div class="tab-pane fade in active" id="login">
+                            <div class="tab-pane fade" id="login">
                                 <h3 class="no-margin-top"><i class="fontello-icon-user-4"></i> Sign in</h3>
 
                                 <form class="form-tied margin-00" method="post" action="/Home/Login" name="login_form">
@@ -61,7 +60,7 @@
                             </div>
                             <!-- // Tab Forgot -->
 
-                            <div class="tab-pane fade" id="register">
+                            <div class="tab-pane fade in active" id="register">
                                 <h3 class="no-margin-top"><i class="fontello-icon-users"></i> New User Registration</h3>
                                 <form class="form-tied margin-00" method="post" action="/Home/Registration" name="login_form">
                                     <fieldset>
@@ -74,7 +73,7 @@
                                             </li>
                                             <li>
                                                 @*<input id="idLogin" class="input-block-level" type="text" name="id_username" placeholder="username">*@
-                                                @Html.TextBoxFor(m => m.UserName, "", new { @class = "input-block-level", @type = "text",  @placeholder = "user name" })
+                                                @Html.TextBoxFor(m => m.UserName, "", new { @class = "input-block-level", @type = "text", @placeholder = "user name" })
                                                 @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "badge badge-danger" })
                                             </li>
                                             <li>

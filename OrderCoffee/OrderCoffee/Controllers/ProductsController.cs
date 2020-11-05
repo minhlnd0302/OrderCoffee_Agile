@@ -18,18 +18,22 @@ namespace OrderCoffee.Controllers
         public ActionResult Index()
         {
             string querySelectProduct = "Select * from product";
+            string name = ViewBag.nameLogin;
+            string linkIndex = ViewBag.linkTitleLogin;
+
             using (IDbConnection db = conn)
             {
                 var listProduct = new List<Product>(); 
                 listProduct = db.Query<Product>(querySelectProduct).ToList();  
                 ViewBag.listProduct = listProduct;
                 ViewBag.count = listProduct.Count();
-            }
-            return View();
-        }
 
-        public ActionResult SignIn()
-        {
+                if (name == null || name == "Sign In")
+                {
+                    ViewBag.nameLogin = "Sign In";
+                    ViewBag.linkTitleLogin = "";
+                }
+            }
             return View();
         }
     }
