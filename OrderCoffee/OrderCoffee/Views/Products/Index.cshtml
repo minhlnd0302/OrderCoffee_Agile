@@ -41,10 +41,15 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="~/JS/fun.js"></script>
     <script>
         $(document).ready(_ => {
             debugger
             var data = @Html.Raw(Json.Encode(ViewBag.listProduct));
+            sessionStorage.setItem("listProduct", JSON.stringify(data));
             console.log(data)
         })
     </script>
@@ -115,40 +120,55 @@
                             <ul>
                                 <li>
                                     <a href="#"><i class="fa fa-shopping-cart"></i>My Cart</a>
-                                    <span>2</span>
+                                    <span id="sl">
+                                        <script>
+                                            var sl = JSON.parse(localStorage.getItem('cartList')).length;
+                                            $('#sl').text(sl);
+                                        </script>
+                                    </span>
+
                                     <div class="mini-cart-sub">
                                         <div class="cart-product">
-                                            <div class="single-cart">
-                                                <div class="cart-img">
-                                                    <a href="#"><img src="~/img/product/1.jpg" alt="book" /></a>
-                                                </div>
-                                                <div class="cart-info">
-                                                    <h5><a href="#">Joust allDuffle Bag</a></h5>
-                                                    <p>1 x £60.00</p>
-                                                </div>
-                                                <div class="cart-icon">
-                                                    <a href="#"><i class="fa fa-remove"></i></a>
-                                                </div>
+                                            <script>
+                                                debugger
+                                                var cartList = JSON.parse(localStorage.getItem('cartList'));
+
+                                                for (var item of cartList) {
+                                                    debugger
+                                                    this.divSingleCart = $('<div>', { class: 'single-cart' }).appendTo($('.cart-product'));
+
+                                                    this.cartImage = $('<div>', { class: "cart-img" }).appendTo(this.divSingleCart);
+
+                                                    this.a = $('<a>').appendTo(this.cartImage);
+                                                    this.img = $('<img>', { src: "../" + item.Image }).appendTo(this.a);
+
+                                                    this.divCartinfo = $('<div>', { class: 'cart-info' }).appendTo(this.divSingleCart);
+                                                    this.h5 = $('<h5>').appendTo(this.divCartinfo);
+                                                    this.a2 = $('<a>', { text: item.Name }).appendTo(this.h5);
+                                                    this.p = $('<p>', { text: "1 x " + item.Price }).appendTo(this.divCartinfo);
+                                                    this.divCartIcon = $('<div>', { class: 'cart-icon' }).appendTo(this.divSingleCart);
+                                                    this.a3 = $('<a>').appendTo(this.divCartIcon);
+                                                    this.i = $('<i>').appendTo(this.a3);
+
+                                                }
+                                            </script>
+                                            <div class="cart-totals">
+                                                <h5>Total <span id="total"></span></h5>
+                                                <script>
+                                                    debugger
+                                                    var tmp = JSON.parse(localStorage.getItem('cartList'));
+
+                                                    var t = tmp.reduce((total, item) => {
+                                                        return total + item.Price;
+                                                    },0)
+
+                                                    $('#total').text(t + "đ")
+                                                </script>
                                             </div>
-                                            <div class="single-cart">
-                                                <div class="cart-img">
-                                                    <a href="#"><img src="~/img/product/3.jpg" alt="book" /></a>
-                                                </div>
-                                                <div class="cart-info">
-                                                    <h5><a href="#">Chaz Kangeroo Hoodie</a></h5>
-                                                    <p>1 x £52.00</p>
-                                                </div>
-                                                <div class="cart-icon">
-                                                    <a href="#"><i class="fa fa-remove"></i></a>
-                                                </div>
+                                            <div class="cart-bottom">
+                                                <a class="view-cart" href="cart.html">view cart</a>
+                                                <a href="checkout.html">Check out</a>
                                             </div>
-                                        </div>
-                                        <div class="cart-totals">
-                                            <h5>Total <span>£12.00</span></h5>
-                                        </div>
-                                        <div class="cart-bottom">
-                                            <a class="view-cart" href="cart.html">view cart</a>
-                                            <a href="checkout.html">Check out</a>
                                         </div>
                                     </div>
                                 </li>
@@ -408,13 +428,13 @@
                 @{
                     var tmp = 0;
                     var count = ViewBag.count;
-                    var data= ViewBag.listProduct;
+                    var data = ViewBag.listProduct;
 
                     for (int i = 0; i < count; i += 2)
                     {
                         <div class="tab-total">
                             @{
-                                for (int j = 0; j <= 1 && tmp < count ; j++)
+                                for (int j = 0; j <= 1 && tmp < count; j++)
                                 {
                                     <div class="product-wrapper mb-40">
                                         <div class="product-img">
@@ -422,7 +442,13 @@
                                                 <img src="~/@data[tmp].Image" alt="book" class="primary" />
                                             </a>
                                             <div class="quick-view">
-                                                <a class="action-view" href="#" data-target="#productModal" data-toggle="modal" title="Quick View">
+                                                <script>
+                                                    function getId(item) {
+                                                        console.log(item.id);
+                                                        sessionStorage.setItem("currentProduct", item.id)
+                                                    }
+                                                </script>
+                                                <a class="action-view" id=@ViewBag.listProduct[tmp].Id onclick="getId(this)" href="#" data-target="#productModal" data-toggle="modal" title="Quick View">
                                                     <i class="fa fa-search-plus"></i>
                                                 </a>
                                             </div>
@@ -452,7 +478,7 @@
                                         </div>
                                         <div class="product-link">
                                             <div class="product-button">
-                                                <a href="#" title="Add to cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                <a href="#" id=@ViewBag.listProduct[tmp].Id title="Add to cart" onclick="addProductToListCart(this)"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                             </div>
                                             <div class="add-to-link">
                                                 <ul>
@@ -462,13 +488,11 @@
                                         </div>
                                     </div>
                                     tmp += 1;
-                                } 
+                                }
                             }
                         </div>
-
-                        
                     }
-                } 
+                }
             </div>
         </div>
     </div>
@@ -504,7 +528,7 @@
                             <div class="product-wrapper">
                                 <div class="product-img">
                                     <a href="#">
-                                        <img src="~/img/product/1.jpg" alt="book" class="primary" />
+                                        <img src="~/@item.Image" alt="book" class="primary" />
                                     </a>
                                     <div class="quick-view">
                                         <a class="action-view" href="#" data-target="#productModal" data-toggle="modal" title="Quick View">
@@ -1303,6 +1327,20 @@
     <!-- Modal -->
     <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
+            <script>
+                debugger
+                var currentProduct = JSON.parse(sessionStorage.getItem('currentProduct'));
+                var listProduct = JSON.parse(sessionStorage.getItem('listProduct'));
+
+                if (currentProduct == 'undefined' && listProduct == 'undefined') {
+                    return;
+                }
+                currentProduct = listProduct.filter(item => {
+                    item.id == currentProduct;
+                })
+                console.log(currentProduct[0]);
+
+            </script>
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
@@ -1349,16 +1387,7 @@
                                             <option value="">L</option>
                                         </select>
                                     </div>
-                                    <div class="quickview-color-wrap">
-                                        <label>Color*</label>
-                                        <div class="quickview-color">
-                                            <ul>
-                                                <li class="blue">b</li>
-                                                <li class="red">r</li>
-                                                <li class="pink">p</li>
-                                            </ul>
-                                        </div>
-                                    </div>
+
                                 </div>
                                 <form action="#">
                                     <input type="number" value="1" />

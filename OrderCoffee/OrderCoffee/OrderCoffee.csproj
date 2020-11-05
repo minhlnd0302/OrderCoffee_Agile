@@ -818,6 +818,7 @@
     <Content Include="img\team\2.jpg" />
     <Content Include="img\team\3.jpg" />
     <Content Include="img\team\4.jpg" />
+    <Content Include="JS\fun.js" />
     <Content Include="JS\popup.js" />
     <Content Include="JS\requestData.js" />
     <Content Include="Scripts\ajax-mail.js" />
