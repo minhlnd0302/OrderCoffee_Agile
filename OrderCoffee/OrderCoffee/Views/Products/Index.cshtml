@@ -36,14 +36,18 @@
     <link rel="stylesheet" href="~/CSS/responsive.css">
     <!-- modernizr css -->
     <script src="~/Scripts/vendor/modernizr-2.8.3.min.js"></script>
-
+    <link href="~/CSS/styles.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="~/JS/fun.js"></script>
     <script>
         $(document).ready(_ => {
@@ -90,7 +94,7 @@
                             <ul>
                                 <li><a href="register.html">My Account</a></li>
                                 <li><a href="checkout.html">Checkout</a></li>
-                                @{ 
+                                @{
                                     var link = ViewBag.linkTitleLogin;
                                     var titleLogin = ViewBag.nameLogin;
 
@@ -158,7 +162,7 @@
                                                     this.divCartinfo = $('<div>', { class: 'cart-info' }).appendTo(this.divSingleCart);
                                                     this.h5 = $('<h5>').appendTo(this.divCartinfo);
                                                     this.a2 = $('<a>', { text: item.Name }).appendTo(this.h5);
-                                                    this.p = $('<p>', { text: "1 x " + item.Price }).appendTo(this.divCartinfo);
+                                                    this.p = $('<p>', { text: item.SoLuong+" x " + item.Price }).appendTo(this.divCartinfo);
                                                     this.divCartIcon = $('<div>', { class: 'cart-icon' }).appendTo(this.divSingleCart);
                                                     this.a3 = $('<a>').appendTo(this.divCartIcon);
                                                     this.i = $('<i>').appendTo(this.a3);
@@ -172,8 +176,8 @@
                                                     var tmp = JSON.parse(localStorage.getItem('cartList'));
 
                                                     var t = tmp.reduce((total, item) => {
-                                                        return total + item.Price;
-                                                    },0)
+                                                        return total + item.Price * item.SoLuong;
+                                                    }, 0)
 
                                                     $('#total').text(t + "đ")
                                                 </script>
@@ -461,9 +465,11 @@
                                                         sessionStorage.setItem("currentProduct", item.id)
                                                     }
                                                 </script>
-                                                <a class="action-view" id=@ViewBag.listProduct[tmp].Id onclick="getId(this)" href="#" data-target="#productModal" data-toggle="modal" title="Quick View">
+                                                <a class="btn btn-primary" id=@ViewBag.listProduct[tmp].Id onclick="setWatchingProductId(this)" data-toggle="modal" data-target=".bd-example-modal-lg">
                                                     <i class="fa fa-search-plus"></i>
                                                 </a>
+
+
                                             </div>
                                             <div class="product-flag">
                                                 <ul>
@@ -1338,6 +1344,67 @@
     </footer>
     <!-- footer-area-end -->
     <!-- Modal -->
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12">
+                            <div class="modal-tab">
+                                <div class="product-details-large tab-content">
+                                    <div class="tab-pane active" id="image-1">
+                                        <img id="img1" class="Image1" />
+                                    </div>
+                                    <div class="tab-pane" id="image-2">
+                                        <img  id="img2" class="Image1" />
+                                    </div>
+                                    <div class="tab-pane" id="image-3">
+                                        <img id="img3" class="Image1" />
+                                    </div>
+                                    <div class="tab-pane" id="image-4">
+                                        <img id="img4" class="Image1" />
+                                    </div>
+                                </div>
+                                <div class="product-details-small quickview-active owl-carousel">
+                                    <a class="active" href="#image-1"><img id="img5" class="Image2" /></a>
+                                    <a href="#image-2"><img id="img6"  class="Image2"/></a>
+                                    <a href="#image-3"><img id="img7"  class="Image2"/></a>
+                                    <a href="#image-4"><img id="img8"  class="Image2" /></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                            <div class="modal-pro-content">
+                                <h3 id="productName" ></h3>
+                                <div class="price">
+                                    <span id="price" ></span>
+                                </div>
+                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet.</p>
+                                <div class="quick-view-select">
+                                    <div class="select-option-part">
+                                        <label>Size*</label>
+                                        <select class="select"> 
+                                            <option value="">M</option>
+                                            <option value="">L</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <form action="#">
+                                    <input type="number" id="slMua" />
+                                    <button id="" onclick="addToCart()" >Add to cart</button>
+                                </form>
+                                <span><i class="fa fa-check"></i> In stock</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <script>
@@ -1355,65 +1422,12 @@
 
             </script>
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-5 col-sm-5 col-xs-12">
-                            <div class="modal-tab">
-                                <div class="product-details-large tab-content">
-                                    <div class="tab-pane active" id="image-1">
-                                        <img src="~/img/product/quickview-l4.jpg" alt="" />
-                                    </div>
-                                    <div class="tab-pane" id="image-2">
-                                        <img src="~/img/product/quickview-l2.jpg" alt="" />
-                                    </div>
-                                    <div class="tab-pane" id="image-3">
-                                        <img src="~/img/product/quickview-l3.jpg" alt="" />
-                                    </div>
-                                    <div class="tab-pane" id="image-4">
-                                        <img src="~/img/product/quickview-l5.jpg" alt="" />
-                                    </div>
-                                </div>
-                                <div class="product-details-small quickview-active owl-carousel">
-                                    <a class="active" href="#image-1"><img src="~/img/product/quickview-s4.jpg" alt="" /></a>
-                                    <a href="#image-2"><img src="~/img/product/quickview-s2.jpg" alt="" /></a>
-                                    <a href="#image-3"><img src="~/img/product/quickview-s3.jpg" alt="" /></a>
-                                    <a href="#image-4"><img src="~/img/product/quickview-s5.jpg" alt="" /></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-7 col-sm-7 col-xs-12">
-                            <div class="modal-pro-content">
-                                <h3>Chaz Kangeroo Hoodie3</h3>
-                                <div class="price">
-                                    <span>$70.00</span>
-                                </div>
-                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet.</p>
-                                <div class="quick-view-select">
-                                    <div class="select-option-part">
-                                        <label>Size*</label>
-                                        <select class="select">
-                                            <option value="">S</option>
-                                            <option value="">M</option>
-                                            <option value="">L</option>
-                                        </select>
-                                    </div>
 
-                                </div>
-                                <form action="#">
-                                    <input type="number" value="1" />
-                                    <button>Add to cart</button>
-                                </form>
-                                <span><i class="fa fa-check"></i> In stock</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
+
     <!-- Modal end -->
     <!-- all js here -->
     <!-- jquery latest version -->

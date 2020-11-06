@@ -708,6 +708,7 @@
     <Content Include="CSS\owl.carousel.css" />
     <Content Include="CSS\responsive.css" />
     <Content Include="CSS\style.css" />
+    <Content Include="CSS\styles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
