@@ -36,9 +36,7 @@ namespace OrderCoffee.Controllers
 
         public ActionResult EditProduct()
         {
-            ViewBag.Message = "Your application description page.";
-
-            string name;
+            ViewBag.Message = "Your application description page."; 
 
             string querySelectProduct = "Select * from product";
             string querySelectCategory = "Select * from categories";

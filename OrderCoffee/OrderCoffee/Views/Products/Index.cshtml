@@ -137,9 +137,14 @@
                             <ul>
                                 <li>
                                     <a href="#"><i class="fa fa-shopping-cart"></i>My Cart</a>
-                                    <span id="sl">
+                                    <span id="sl">0
                                         <script>
-                                            var sl = JSON.parse(localStorage.getItem('cartList')).length;
+                                            debugger 
+                                            var tmp = JSON.parse(localStorage.getItem('cartList'));
+                                            var sl = tmp.reduce((t, item) => {
+                                                debugger
+                                                return t + parseInt(item.SoLuong);
+                                            }, 0);
                                             $('#sl').text(sl);
                                         </script>
                                     </span>
@@ -171,10 +176,8 @@
                                             </script>
                                             <div class="cart-totals">
                                                 <h5>Total <span id="total"></span></h5>
-                                                <script>
-                                                    debugger
-                                                    var tmp = JSON.parse(localStorage.getItem('cartList'));
-
+                                                <script> 
+                                                    var tmp = JSON.parse(localStorage.getItem('cartList')); 
                                                     var t = tmp.reduce((total, item) => {
                                                         return total + item.Price * item.SoLuong;
                                                     }, 0)

@@ -41,7 +41,7 @@
     console.log(cartList)
 
 
-    localStorage.setItem('cartList', JSON.stringify(cartList));
+    localStorage.setItem('cartList', JSON.stringify(cartList)); 
 
     debugger
     window.location = "/Products/Index";
@@ -79,7 +79,7 @@ function setInfoCurrentProductModal() {
 }
 
 function addToCart() {
-
+    debugger
     var idProduct = sessionStorage.getItem('id')
     var sl = $('#slMua').val();
     var cartList = new Array();
@@ -117,9 +117,8 @@ function addToCart() {
      
     console.log(cartList)
      
-    localStorage.setItem('cartList', JSON.stringify(cartList));
-
-    debugger
+    localStorage.setItem('cartList', JSON.stringify(cartList)); 
+   
     window.location = "/Products/Index";
 
     console.log(idProduct)
