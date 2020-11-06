@@ -97,9 +97,7 @@ namespace OrderCoffee.Controllers
                 {
                     if (user.PassWord == id_login_password)
                     {
-                        ViewBag.nameLogin = user.UserName;
-
-
+                        ViewBag.nameLogin = user.UserName; 
                         switch (user.Roles)
                         {
                             case 1:

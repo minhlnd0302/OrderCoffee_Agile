@@ -149,8 +149,7 @@
                                                 <li><a href="login.html">login</a></li>
                                                 <li><a href="register.html">register</a></li>
                                                 <li><a href="cart.html">cart</a></li>
-                                                <li><a href="checkout.html">checkout</a></li>
-                                                <li><a href="wishlist.html">wishlist</a></li>
+                                                <li><a href="checkout.html">checkout</a></li> 
                                                 <li><a href="404.html">404 Page</a></li>
                                             </ul>
                                         </div>
@@ -224,8 +223,7 @@
                                                 this.tr = $('<tr>').appendTo($('#viewCart'));
                                                 this.td1 = $('<td>', { class: 'product-thumbnail' }).appendTo(this.tr);
                                                 this.a1 = $('<a>').appendTo(this.td1);
-                                                this.img1 = $('<img>', { src: "../" + item.Image }).appendTo(this.a1)
-
+                                                this.img1 = $('<img>', { src: "../" + item.Image }).appendTo(this.a1) 
 
                                                 this.td2 = $('<td>', { class: 'product-name' }).appendTo(this.tr);
                                                 this.a2 = $('<a>', { text: item.Name }).appendTo(this.td2);
@@ -235,9 +233,9 @@
 
                                                 this.td4 = $('<td>', { class: 'product-quantity' }).appendTo(this.tr);
 
-                                                this.input = $('<input>', { type: 'number', value: '1' }).appendTo(this.td4);
+                                                this.input = $('<input>', { type: 'number', value: item.SoLuong }).appendTo(this.td4);
 
-                                                this.td5 = $('<td>', { class: 'product-subtotal', text: item.Price }).appendTo(tr);
+                                                this.td5 = $('<td>', { class: 'product-subtotal', text: item.Price * item.SoLuong + " đ"}).appendTo(tr);
 
                                                 this.td6 = $('<td>', { class: 'product-remove' }).appendTo(this.tr);
                                                 this.aa = $('<a>').appendTo(this.td6);
@@ -255,7 +253,7 @@
                         <div class="buttons-cart mb-30">
                             <ul>
                                 <li><a href="#">Update Cart</a></li>
-                                <li><a href="#">Continue Shopping</a></li>
+                                <li><a href="~/Products/Index">Continue Shopping</a></li>
                             </ul>
                         </div>
                         <div class="coupon">
@@ -310,7 +308,7 @@
                                         var cartList = JSON.parse(localStorage.getItem('cartList'));
 
                                         var total = cartList.reduce((t, item) => {
-                                            return t + item.Price;
+                                            return t + item.Price * item.SoLuong;
                                         }, 0)
 
                                         $('#total1, #total2').text(total + "đ")
