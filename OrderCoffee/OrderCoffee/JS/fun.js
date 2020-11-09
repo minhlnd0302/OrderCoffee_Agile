@@ -126,6 +126,9 @@ function addToCart() {
 
 function updateCart(idProduct) {
     var listProduct = JSON.parse(sessionStorage.getItem('listProduct'));
+
+    var cartList = JSON.parse(localStorage.getItem('cartList'));
+
     var count = 0;
     for (var item in listProduct) {
         if (item.id == idProduct) {
