@@ -233,6 +233,7 @@
 
                                                 this.td4 = $('<td>', { class: 'product-quantity' }).appendTo(this.tr);
 
+                                                this.btn1 = $('<input>', { type: 'button', class: 'btn-decrease', style: 'color:red', onclick: 'updateCart(' +"'"+ item.Id+"'" + ')' }).appendTo(this.td4);
                                                 this.input = $('<input>', { type: 'number', value: item.SoLuong }).appendTo(this.td4);
 
                                                 this.td5 = $('<td>', { class: 'product-subtotal', text: item.Price * item.SoLuong + " đ"}).appendTo(tr);
@@ -241,7 +242,7 @@
                                                 this.aa = $('<a>').appendTo(this.td6);
                                                 this.i = $('<i>', { class: "fa fa-times" }).appendTo(this.aa)
                                             }  
-                                        </script> 
+                                        </script>
                                     </tbody>
                                 </table>
                             </div>

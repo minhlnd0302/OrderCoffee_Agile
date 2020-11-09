@@ -123,4 +123,18 @@ function addToCart() {
 
     console.log(idProduct)
 }
-     
+
+function updateCart(idProduct) {
+    var listProduct = JSON.parse(sessionStorage.getItem('listProduct'));
+    var count = 0;
+    for (var item in listProduct) {
+        if (item.id == idProduct) {
+            console.log(item.id + " " + idProduct)
+            console.log(item.SoLuong)
+            item.SoLuong -= 1;
+            count = item.SoLuong;
+        }
+    }
+    console.log(count)
+
+}     
