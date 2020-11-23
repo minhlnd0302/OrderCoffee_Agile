@@ -261,8 +261,8 @@
                             <h3>Coupon</h3>
                             <p>Enter your coupon code if you have one.</p>
                             <form action="#">
-                                <input type="text" placeholder="Coupon code">
-                                <a href="#">Apply Coupon</a>
+                                <input id="coupon" type="text" placeholder="Coupon code">
+                                @*<a type="submit" onclick="applydiscount()">Apply Coupon</a>*@
                             </form>
                         </div>
                     </div>
@@ -306,18 +306,20 @@
                                     </tr>
 
                                     <script>
-                                        var cartList = JSON.parse(localStorage.getItem('cartList'));
+                                            var cartList = JSON.parse(localStorage.getItem('cartList'));
 
-                                        var total = cartList.reduce((t, item) => {
-                                            return t + item.Price * item.SoLuong;
-                                        }, 0)
+                                            var total = cartList.reduce((t, item) => {
+                                                return t + item.Price * item.SoLuong;
+                                            }, 0)
+                                            $('#total1, #total2').text(total + "đ")
+                                        
 
-                                        $('#total1, #total2').text(total + "đ")
+                                        
                                     </script>
                                 </tbody>
                             </table>
                             <div class="wc-proceed-to-checkout">
-                                <a href="#">Proceed to Checkout</a>
+                                <a type="submit" onclick="proceedToCheckout()">Apply Discount and CheckOut</a>
                             </div>
                         </div>
                     </div>
@@ -469,5 +471,39 @@
         <script src="~/Scripts/plugins.js"></script>
         <!-- main js -->
         <script src="~/Scripts/main.js"></script>
+        <script>
+
+            function applydiscount() {
+                return document.getElementById("coupon").value;
+            }
+
+            function proceedToCheckout() {
+                var cartList = JSON.parse(localStorage.getItem('cartList'));
+
+                var total = cartList.reduce((t, item) => {
+                    return t + item.Price * item.SoLuong;
+                }, 0)
+                var coupon = applydiscount();
+                $.ajax({
+                    url: "CheckOut",
+                    data: {
+                        p: window.localStorage.getItem('cartList'),
+                        tmp_total: total,
+                        discountcode: coupon
+                        },
+                    type: "POST",
+                    dataType: "json",
+                    success: function (response) {
+                        debugger;
+                        if (response == true) {
+                            window.localStorage.clear();
+                            alert("ok ban oi");
+                            location.reload();
+                        }
+                        console.log(response);
+                    }
+                });
+            }
+        </script>
 </body>
 </html>

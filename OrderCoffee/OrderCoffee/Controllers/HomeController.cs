@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using OrderCoffee.Common;
 using OrderCoffee.Models;
 using System.Collections.Generic;
 using System.Configuration;
@@ -12,7 +13,10 @@ namespace OrderCoffee.Controllers
 {
     public class HomeController : Controller
     {
+
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString());
+
+        public static string ACCOUNT_SESSION = "ACCOUNT_SESSION";
         public SqlConnection Conn
         {
             get
@@ -95,7 +99,11 @@ namespace OrderCoffee.Controllers
                 {
                     if (user.PassWord == id_login_password)
                     {
-                        ViewBag.nameLogin = user.UserName; 
+                        ViewBag.nameLogin = user.UserName;
+                        //var accountSession = new Account();
+                        //accountSession.id_customer = user.id_customer;
+                        Session[CommonSession.ACCOUNT_SESSION] = user.id_customer;
+
                         switch (user.Roles)
                         {
                             case 1:

@@ -253,3 +253,173 @@ D:\CAFE\CODE\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.csproj.CoreCompileInp
 D:\CAFE\CODE\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.csproj.CopyComplete
 D:\CAFE\CODE\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.dll
 D:\CAFE\CODE\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.pdb
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\OrderCoffee.dll.config
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\OrderCoffee.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\OrderCoffee.pdb
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\csc.exe
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\csc.exe.config
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\csc.rsp
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\csi.exe
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\csi.exe.config
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\csi.rsp
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.Managed.Core.targets
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.AppContext.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Collections.Immutable.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Console.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Globalization.Calendars.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.IO.Compression.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.IO.FileSystem.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Net.Http.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Net.Sockets.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Reflection.Metadata.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.ValueTuple.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Xml.XmlDocument.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Xml.XPath.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\vbc.exe
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\vbc.exe.config
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\vbc.rsp
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\VBCSCompiler.exe
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\VBCSCompiler.exe.config
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Antlr3.Runtime.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Dapper.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\EntityFramework.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\EntityFramework.SqlServer.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Microsoft.Web.Infrastructure.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Newtonsoft.Json.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.Helpers.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.Mvc.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.Optimization.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.Razor.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.WebPages.Deployment.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.WebPages.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.WebPages.Razor.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\WebGrease.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Dapper.xml
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\EntityFramework.xml
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\EntityFramework.SqlServer.xml
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.Helpers.xml
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.Mvc.xml
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.Optimization.xml
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.Razor.xml
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.WebPages.xml
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.WebPages.Deployment.xml
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.WebPages.Razor.xml
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Newtonsoft.Json.xml
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Antlr3.Runtime.pdb
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.csprojAssemblyReference.cache
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.csproj.CoreCompileInputs.cache
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.csproj.CopyComplete
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.dll
+E:\ai\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.pdb
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\OrderCoffee.dll.config
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\OrderCoffee.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\OrderCoffee.pdb
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\csc.exe
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\csc.exe.config
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\csc.rsp
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\csi.exe
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\csi.exe.config
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\csi.rsp
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.AppContext.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Collections.Immutable.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Console.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Globalization.Calendars.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.IO.Compression.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.IO.FileSystem.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Net.Http.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Net.Sockets.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Reflection.Metadata.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.ValueTuple.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Xml.XPath.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\vbc.exe
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\vbc.exe.config
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\vbc.rsp
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\VBCSCompiler.exe
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\roslyn\VBCSCompiler.exe.config
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Antlr3.Runtime.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Dapper.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\EntityFramework.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\EntityFramework.SqlServer.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Microsoft.Web.Infrastructure.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Newtonsoft.Json.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.Helpers.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.Mvc.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.Optimization.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.Razor.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.WebPages.Deployment.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.WebPages.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.WebPages.Razor.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\WebGrease.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Dapper.xml
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\EntityFramework.xml
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\EntityFramework.SqlServer.xml
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.Helpers.xml
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.Mvc.xml
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.Optimization.xml
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.Razor.xml
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.WebPages.xml
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.WebPages.Deployment.xml
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.WebPages.Razor.xml
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Newtonsoft.Json.xml
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Antlr3.Runtime.pdb
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.csproj.CoreCompileInputs.cache
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.csproj.CopyComplete
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.pdb
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.csprojAssemblyReference.cache
