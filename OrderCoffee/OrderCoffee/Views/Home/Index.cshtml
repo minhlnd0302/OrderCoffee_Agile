@@ -74,7 +74,7 @@
                                             </li>
                                             <li>
                                                 @*<input id="idLogin" class="input-block-level" type="text" name="id_username" placeholder="username">*@
-                                                @Html.TextBoxFor(m => m.UserName, "", new { @class = "input-block-level", @type = "text",  @placeholder = "user name" })
+                                                @Html.TextBoxFor(m => m.UserName, "", new { @class = "input-block-level", @type = "text", @placeholder = "user name" })
                                                 @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "badge badge-danger" })
                                             </li>
                                             <li>
@@ -85,6 +85,10 @@
                                                 {
                                                     <span class="badge badge-danger">@ViewBag.error</span>
                                                 }
+                                            </li>
+                                            <li>
+                                                @Html.TextBoxFor(m => m.Address, "", new { @class = "input-block-level", @type = "text", @placeholder = "address" })
+                                                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "badge badge-danger" })
                                             </li>
                                             <li>
                                                 @*<input id="idLogin" class="input-block-level" type="text" name="id_phone" placeholder="your phone">*@

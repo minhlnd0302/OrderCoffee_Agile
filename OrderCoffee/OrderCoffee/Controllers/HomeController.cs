@@ -149,9 +149,9 @@ namespace OrderCoffee.Controllers
         [HttpPost]
         public ActionResult Registration(Account _accounts)
         {
-            if (_accounts.UserName != null && _accounts.FullName != null && _accounts.Email != null && _accounts.PassWord != null && _accounts.PhoneNumber != null)
+            if (_accounts.UserName != null && _accounts.FullName != null && _accounts.Email != null && _accounts.PassWord != null && _accounts.PhoneNumber != null && _accounts.Address != null)
             {
-                string queryInsert = "Insert Into account (username, name, password, number, email, roles) values (@username, @name, @password , @number, @email, @roles);";
+                string queryInsert = "Insert Into account (username, name, password, address, number, email, roles) values (@username, @name, @password, @address, @number, @email, @roles);";
                 string queryFindEmail = "Select * From dbo.Account Where Email = '" + _accounts.Email + "'";
                 string queryFindUserName = "Select * From dbo.Account Where UserName = '" + _accounts.UserName + "'";
 
@@ -175,6 +175,7 @@ namespace OrderCoffee.Controllers
                         username = _accounts.UserName,
                         name = _accounts.FullName,
                         password = _accounts.PassWord,
+                        address = _accounts.Address,
                         number = _accounts.PhoneNumber,
                         email = _accounts.Email,
                         roles = 2
