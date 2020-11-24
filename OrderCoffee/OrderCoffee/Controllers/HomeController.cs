@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using OrderCoffee.Common;
 using OrderCoffee.Models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -44,17 +45,23 @@ namespace OrderCoffee.Controllers
 
             string querySelectProduct = "Select * from product";
             string querySelectCategory = "Select * from categories";
+            string querySelectDiscount_Code = "Select * from discount_code";
 
             using (IDbConnection db = conn)
             {
                 var listProduct = new List<Product>();
                 var listCategory = new List<Categories>();
+                var listDiscount_Code = new List<Discount_Code>();
 
                 listProduct = db.Query<Product>(querySelectProduct).ToList();
                 listCategory = db.Query<Categories>(querySelectCategory).ToList();
+                listDiscount_Code = db.Query<Discount_Code>(querySelectDiscount_Code).ToList();
 
                 ViewBag.listCategory = listCategory;
                 ViewBag.listProduct = listProduct;
+
+                // add viewBag Coupoun Code
+                ViewBag.listDiscount_Code = listDiscount_Code;
             }
 
             return View();
@@ -278,7 +285,67 @@ namespace OrderCoffee.Controllers
             }
 
             return Json(jr, JsonRequestBehavior.AllowGet);
-        } 
+        }
+
+        #region Coupon
+        public JsonResult updateCoupon(FormCollection collection)
+        {
+            var jr = new JsonResult();
+
+            var Code = collection["Code"];
+            var Precent = collection["Disc_Percent"];
+            var Date_Start = collection["Date_Start"];
+            var Date_End = collection["Date_End"];
+
+            string queryUpdateProduct = "UPDATE discount_code SET disc_percent = @Precent, date_start = @Date_Start, date_end = @Date_End where code = @Code; ";
+
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))
+            {
+                var affectedRows = db.Execute(queryUpdateProduct, new { code = Code, disc_percent = Precent, date_start = Date_Start, date_end = Date_End });
+            }
+
+            return Json(jr, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult addCoupon(FormCollection collection)
+        {
+            var jr = new JsonResult();
+
+            var Code = collection["Code"];
+            var Disc_Percent = collection["Disc_Percent"];
+            var Date_Start = collection["Date_Start"];
+            var Date_End = collection["Date_End"];
+            string FORMAT = "dd-MM-yyyy hh:mm:ss:tt";
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))
+            {
+                string queryInsert = "Insert Into discount_code (code, disc_percent, date_start, date_end) Values (@Code, @Disc_Percent, @Date_Start, @Date_End);";
+
+                var affectedRows = db.Execute(queryInsert, new { code = Code, disc_percent = int.Parse(Disc_Percent),
+                    date_start = DateTime.ParseExact(Date_Start, FORMAT, System.Globalization.CultureInfo.InvariantCulture),
+                    date_end = DateTime.ParseExact(Date_End, FORMAT, System.Globalization.CultureInfo.InvariantCulture)
+                });
+            }
+
+            return Json(jr, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult removeCoupon(FormCollection collection)
+        {
+            var jr = new JsonResult();
+            var Code = collection["Code"];
+
+            string queryRemoveProduct = "DELETE FROM discount_code WHERE code = @Code";
+
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))
+            {
+                var affectedRows = db.Execute(queryRemoveProduct, new { code = Code });
+            }
+
+            return Json(jr, JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
+
         private void _UpdateDictionaryCategory()
         {
             if (_dictIDCategoryToName.Count == 0)
