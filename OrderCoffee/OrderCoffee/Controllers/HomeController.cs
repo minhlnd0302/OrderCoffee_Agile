@@ -1,10 +1,15 @@
 ﻿using Dapper;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using OrderCoffee.Models;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 
@@ -93,6 +98,7 @@ namespace OrderCoffee.Controllers
 
                 if (user != null)
                 {
+                    Session["userName"] = user.UserName;
                     if (user.PassWord == id_login_password)
                     {
                         ViewBag.nameLogin = user.UserName; 
@@ -141,7 +147,7 @@ namespace OrderCoffee.Controllers
         [HttpPost]
         public ActionResult Registration(Account _accounts)
         {
-            if (_accounts.UserName != null && _accounts.FullName != null && _accounts.Email != null && _accounts.PassWord != null && _accounts.PhoneNumber != null)
+            if (_accounts.UserName != null && _accounts.Name != null && _accounts.Email != null && _accounts.PassWord != null && _accounts.Number != null)
             {
                 string queryInsert = "Insert Into account (username, name, password, number, email, roles) values (@username, @name, @password , @number, @email, @roles);";
                 string queryFindEmail = "Select * From dbo.Account Where Email = '" + _accounts.Email + "'";
@@ -165,9 +171,9 @@ namespace OrderCoffee.Controllers
                     var affectedRows = db.Execute(queryInsert, new
                     {
                         username = _accounts.UserName,
-                        name = _accounts.FullName,
+                        name = _accounts.Name,
                         password = _accounts.PassWord,
-                        number = _accounts.PhoneNumber,
+                        number = _accounts.Number,
                         email = _accounts.Email,
                         roles = 2
                     });
@@ -254,6 +260,39 @@ namespace OrderCoffee.Controllers
             }
 
             return Json(jr, JsonRequestBehavior.AllowGet);
+        }
+
+
+        [HttpPost]
+        public ActionResult UploadFile(HttpPostedFileBase file, string productId)
+        {
+            try
+            {
+                if (file.ContentLength > 0)
+                {
+                    string _FileName = Path.GetFileName(file.FileName);
+                    string _path = Path.Combine(Server.MapPath("~/Images_product/"), _FileName);
+                    file.SaveAs(_path);
+
+                    using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))
+                    {
+                        string query = "UPDATE product SET  image =@link where id = @Id; ";
+                        var affectedRows = db.Execute(query, new { id = productId, link = _FileName });
+                    }
+                }
+                ViewBag.Message = "File Uploaded Successfully!!";
+
+                //string query = "Insert Into product (id, id_category, name, price, image, description, quantity) Values (@IdProduct, @IdCategory, @Name, @Price, @Image, @Description, @Quantity);";
+                
+
+                
+                return View("EditProduct");
+            }
+            catch
+            {
+                ViewBag.Message = "File upload failed!!";
+                return View("EditProduct");
+            }
         }
 
         public JsonResult removeProduct(FormCollection collection)

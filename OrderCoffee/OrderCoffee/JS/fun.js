@@ -1,4 +1,11 @@
-﻿function addProductToListCart(item) {
+﻿function request(postUrl, postData) {
+    return $.post(postUrl, postData,
+        function (res, status) {
+            return res;
+        }
+    )
+}
+function addProductToListCart(item) {
     debugger
     var cartList = new Array();
     try { 
@@ -140,4 +147,20 @@ function updateCart(idProduct) {
     }
     console.log(count)
 
-}     
+}   
+
+function setProfile() {
+    debugger
+    request("/Accounts/GetPfofile")
+        .then(res => res.Data)
+        .then(res1 => res1.profile)
+        .then(profile => {
+            console.log(profile)
+            $('#username').val(profile.UserName);
+            $('#fullname').val(profile.FullName);
+            $('#mphone').val(profile.PhoneNumber);
+            $('#youremail').val(profile.UserName);
+            $('#psword').val(profile.PassWord);
+            $('#pword2').val(profile.PassWord);
+        })
+}

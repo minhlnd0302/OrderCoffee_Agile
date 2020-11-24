@@ -52,7 +52,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="~/assets/ico/apple-touch-icon-57-precomposed.png">
-     
+
 </head>
 
 <body class="sidebar-left ">
@@ -190,8 +190,9 @@
                                 <button class="w2ui-btn" onclick="editProduct();">Edit product</button>
                                 <button class="w2ui-btn" onclick="addProduct();">Add product</button>
                                 <button class="w2ui-btn" onclick="removeProduct();">Remove product</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="addImages();">Add Images</button>
                                 <script> 
-                                    var products = @Html.Raw(Json.Encode(ViewBag.listProduct)); 
+                                    var products = @Html.Raw(Json.Encode(ViewBag.listProduct));
                                     var listCategory = @Html.Raw(Json.Encode(ViewBag.listCategory));
 
                                     sessionStorage.setItem('listCategory', JSON.stringify(listCategory));
@@ -200,7 +201,7 @@
                                         delete item['Image'];
                                         item.recid = item.Id;
                                         delete item['Id'];
-                                    }  
+                                    }
                                     console.log(products)
                                     $('#grid').w2grid({
                                         name: 'grid',
@@ -225,12 +226,24 @@
                                             { field: 'Description', caption: 'Description', size: '60%' },
                                             { field: 'Quantity', caption: 'Quantity', size: '8%' }
                                         ],
-                                        records: products 
-                                    });  
+                                        records: products
+                                    });
 
                                     function addProduct() {
                                         debugger
                                         popupAddProduct();
+                                    }
+
+                                    function addImages() {
+                                        var productSelected = w2ui['grid'].getSelection();
+                                        if (productSelected.length > 1 || productSelected.length < 1) {
+                                            alert('Please choice a product !');
+                                            return;
+                                        }
+
+                                        sessionStorage.setItem("currentProduct", productSelected)
+
+
                                     }
 
                                     function editProduct() {
@@ -239,7 +252,7 @@
                                             alert('Please choice a product !');
                                             return;
                                         }
-                                        
+
                                         var infoProductSelected = w2ui['grid'].records.filter(item => {
                                             return item.recid == productSelected;
                                         })
@@ -251,7 +264,7 @@
                                         popupEditProduct(infoProductSelected);
                                     }
 
-                                    function removeProduct() { 
+                                    function removeProduct() {
                                         var productSelected = w2ui['grid'].getSelection();
                                         sessionStorage.setItem('idProductCurrent', productSelected);
                                         showConfirmRemove();
@@ -419,6 +432,45 @@
         <!-- inject to DTCV Table -->
         <div id="DTSC_header_title">
             <h4>2500 Entries</h4>
+        </div>
+
+        @*<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    @using (Html.BeginForm("UploadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" , id = "1"}))
+                    {
+                        <div>
+                            @Html.TextBox("file", "", new { type = "file" }) <br />
+                            <input type="submit" value="Upload" />
+                            @ViewBag.Message
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>*@
+
+        @* add image *@
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content"> 
+                    @using (Html.BeginForm("UploadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <div>
+                            <label style="font-size : 20px; color:white " >Id sản phẩm :</label>
+                            <input type="text" id="idProduct" name="productId" />
+                            <script>
+                                setInterval(_ => {
+                                    $('#idProduct').val(sessionStorage.getItem("currentProduct")); 
+                                },100) 
+                            </script>
+                            @Html.TextBox("file", "", new { type = "file" }) <br />
+                            <input type="submit" value="Upload" />
+                            @ViewBag.Message
+                        </div>
+                    }
+                </div>
+            </div>
         </div>
     </div>
 

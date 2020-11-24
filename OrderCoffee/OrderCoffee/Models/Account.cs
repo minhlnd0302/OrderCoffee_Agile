@@ -14,7 +14,7 @@ namespace OrderCoffee.Models
 
         [Required]
         [StringLength(60, MinimumLength = 3)]
-        public string FullName { get; set; }
+        public string Name { get; set; }
 
         [Required]
         [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$")]
@@ -22,7 +22,7 @@ namespace OrderCoffee.Models
 
         [Required]
         [StringLength(10, MinimumLength = 3)]
-        public string PhoneNumber { get; set; }
+        public string Number { get; set; }
 
         [Required]
         [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}")]
