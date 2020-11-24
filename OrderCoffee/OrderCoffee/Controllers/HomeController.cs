@@ -1,12 +1,13 @@
 ﻿using Dapper;
 using OrderCoffee.Common;
 using OrderCoffee.Models;
-using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 
@@ -41,7 +42,7 @@ namespace OrderCoffee.Controllers
 
         public ActionResult EditProduct()
         {
-            ViewBag.Message = "Your application description page."; 
+            ViewBag.Message = "Your application description page.";
 
             string querySelectProduct = "Select * from product";
             string querySelectCategory = "Select * from categories";
@@ -65,7 +66,7 @@ namespace OrderCoffee.Controllers
             }
 
             return View();
-        }  
+        }
         public ActionResult AdminDashboard()
         {
             ViewBag.Message = "Your contact page.";
@@ -73,12 +74,12 @@ namespace OrderCoffee.Controllers
             return View();
         }
 
-        public ActionResult Login ()
+        public ActionResult Login()
         {
             return View();
         }
 
-        public ActionResult Registration ()
+        public ActionResult Registration()
         {
             return View();
         }
@@ -104,6 +105,7 @@ namespace OrderCoffee.Controllers
 
                 if (user != null)
                 {
+                    Session["userName"] = user.UserName;
                     if (user.PassWord == id_login_password)
                     {
                         ViewBag.nameLogin = user.UserName;
@@ -137,7 +139,7 @@ namespace OrderCoffee.Controllers
                                         }
                                     }
                                 }
-                                
+
 
                                 return View("../Products/Index");
                             default:
@@ -156,7 +158,7 @@ namespace OrderCoffee.Controllers
         [HttpPost]
         public ActionResult Registration(Account _accounts)
         {
-            if (_accounts.UserName != null && _accounts.FullName != null && _accounts.Email != null && _accounts.PassWord != null && _accounts.PhoneNumber != null && _accounts.Address != null)
+            if (_accounts.UserName != null && _accounts.Name != null && _accounts.Email != null && _accounts.PassWord != null && _accounts.Number != null)
             {
                 string queryInsert = "Insert Into account (username, name, password, address, number, email, roles) values (@username, @name, @password, @address, @number, @email, @roles);";
                 string queryFindEmail = "Select * From dbo.Account Where Email = '" + _accounts.Email + "'";
@@ -180,10 +182,10 @@ namespace OrderCoffee.Controllers
                     var affectedRows = db.Execute(queryInsert, new
                     {
                         username = _accounts.UserName,
-                        name = _accounts.FullName,
+                        name = _accounts.Name,
                         password = _accounts.PassWord,
                         address = _accounts.Address,
-                        number = _accounts.PhoneNumber,
+                        number = _accounts.Number,
                         email = _accounts.Email,
                         roles = 2
                     });
@@ -227,8 +229,8 @@ namespace OrderCoffee.Controllers
             var categoryName = collection["CategoryName"];
 
             // ah dùng cái distionary đê lấy id_category nhe ah
-            var id_Category = _dictNameCategoryToID[categoryName]; 
-             
+            var id_Category = _dictNameCategoryToID[categoryName];
+
             string queryUpdateProduct = "UPDATE product SET id_category = @id_category,name = @Name,price = @Price,image =@link ,description =@Description,quantity=@Quantity where id = @Id; ";
 
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))
@@ -253,33 +255,66 @@ namespace OrderCoffee.Controllers
 
             string querySelectMaxId = "SELECT MAX(SUBSTRING(id, 6, len(id) - 6 + 1)) AS ExtractString FROM product;";
 
-            using(IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))
             {
-                string maxId = db.Query<string>(querySelectMaxId).First(); 
-                var newId = int.Parse(maxId) + 1; 
+                string maxId = db.Query<string>(querySelectMaxId).First();
+                var newId = int.Parse(maxId) + 1;
                 var tmp = "";
                 if (newId < 10) tmp = "00" + newId.ToString();
-                else if (newId < 100) tmp = "0" + newId.ToString(); 
-                Id =  "PROD_" + tmp;
+                else if (newId < 100) tmp = "0" + newId.ToString();
+                Id = "PROD_" + tmp;
 
                 string queryInsert = "Insert Into product (id, id_category, name, price, image, description, quantity) Values (@IdProduct, @IdCategory, @Name, @Price, @Image, @Description, @Quantity);";
 
                 var affectedRows = db.Execute(queryInsert, new { IdProduct = Id, IdCategory = categoryId, Name = Name, Price = Price, Image = "link", Description = Description, Quantity = 0 });
 
-                 
+
             }
 
             return Json(jr, JsonRequestBehavior.AllowGet);
         }
 
+
+        [HttpPost]
+        public ActionResult UploadFile(HttpPostedFileBase file, string productId)
+        {
+            try
+            {
+                if (file.ContentLength > 0)
+                {
+                    string _FileName = Path.GetFileName(file.FileName);
+                    string _path = Path.Combine(Server.MapPath("~/Images_product/"), _FileName);
+                    file.SaveAs(_path);
+
+                    using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))
+                    {
+                        string query = "UPDATE product SET  image =@link where id = @Id; ";
+                        var affectedRows = db.Execute(query, new { id = productId, link = _FileName });
+                    }
+                }
+                ViewBag.Message = "File Uploaded Successfully!!";
+
+                //string query = "Insert Into product (id, id_category, name, price, image, description, quantity) Values (@IdProduct, @IdCategory, @Name, @Price, @Image, @Description, @Quantity);";
+
+
+
+                return View("EditProduct");
+            }
+            catch
+            {
+                ViewBag.Message = "File upload failed!!";
+                return View("EditProduct");
+            }
+        }
+
         public JsonResult removeProduct(FormCollection collection)
         {
-            var jr = new JsonResult(); 
-            var id = collection["Id"]; 
+            var jr = new JsonResult();
+            var id = collection["Id"];
 
             string queryRemoveProduct = "DELETE FROM product WHERE id = @idProduct";
 
-            using(IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))
             {
                 var affectedRows = db.Execute(queryRemoveProduct, new { idProduct = id });
             }
@@ -316,13 +351,16 @@ namespace OrderCoffee.Controllers
             var Date_Start = collection["Date_Start"];
             var Date_End = collection["Date_End"];
             //string FORMAT = "dd-MM-yyyy hh:mm:ss:tt"; 
-            
-            
+
+
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))
             {
                 string queryInsert = "Insert Into discount_code (code, disc_percent, date_start, date_end) Values (@Code, @Disc_Percent, @Date_Start, @Date_End);";
 
-                var affectedRows = db.Execute(queryInsert, new { code = Code, disc_percent = int.Parse(Disc_Percent),
+                var affectedRows = db.Execute(queryInsert, new
+                {
+                    code = Code,
+                    disc_percent = int.Parse(Disc_Percent),
                     date_start = Date_Start,
                     date_end = Date_End,
                 });

@@ -233,15 +233,31 @@
 
                                                 this.td4 = $('<td>', { class: 'product-quantity' }).appendTo(this.tr);
 
-                                                this.btn1 = $('<input>', { type: 'button', class: 'btn-decrease', style: 'color:red', onclick: 'updateCart(' +"'"+ item.Id+"'" + ')' }).appendTo(this.td4);
-                                                this.input = $('<input>', { type: 'number', value: item.SoLuong }).appendTo(this.td4);
+                                                //this.btn1 = $('<input>', { type: 'button', class: 'btn-decrease', style: 'color:red', onclick: 'updateCart(' +"'"+ item.Id+"'" + ')' }).appendTo(this.td4);
+                                                this.input = $('<input>', { type: 'number', value: item.SoLuong, class: 'test', id: item.Id }).appendTo(this.td4);
 
                                                 this.td5 = $('<td>', { class: 'product-subtotal', text: item.Price * item.SoLuong + " đ"}).appendTo(tr);
 
                                                 this.td6 = $('<td>', { class: 'product-remove' }).appendTo(this.tr);
                                                 this.aa = $('<a>').appendTo(this.td6);
-                                                this.i = $('<i>', { class: "fa fa-times" }).appendTo(this.aa)
-                                            }  
+                                                this.i = $('<i>', { class: "fa fa-times" }).appendTo(this.aa);
+                                            }
+                                            debugger
+                                                $('.test').bind('keyup mouseup', function () {
+                                                    debugger
+                                                    var productId = this.id;
+                                                    var sl = this.value;
+
+                                                    console.log(productId);
+                                                    console.log(sl);
+
+                                                    for (var item of cartList) {
+                                                        if (item.Id == productId) {
+                                                            item.SoLuong = sl;
+                                                        }
+                                                    } 
+                                                    localStorage.setItem('cartList', JSON.stringify(cartList));
+                                            });
                                         </script>
                                     </tbody>
                                 </table>
@@ -253,7 +269,7 @@
                     <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
                         <div class="buttons-cart mb-30">
                             <ul>
-                                <li><a href="#">Update Cart</a></li>
+                                <li><a href="~/Products/Index">Update Cart</a></li>
                                 <li><a href="~/Products/Index">Continue Shopping</a></li>
                             </ul>
                         </div>

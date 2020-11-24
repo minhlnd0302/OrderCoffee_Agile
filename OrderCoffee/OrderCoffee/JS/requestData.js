@@ -7,10 +7,3 @@
     return result;
 }
 
-function request(postUrl, postData) {
-    return $.post(postUrl, postData,
-        function (res, status) {
-            return res;
-        }
-    )
-}

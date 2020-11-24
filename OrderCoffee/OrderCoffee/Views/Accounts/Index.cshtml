@@ -1,0 +1,541 @@
+﻿
+@{
+    Layout = "";
+}
+
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Koparion – Book Shop Bootstrap 4 Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/~/img/favicon.png">
+
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- all css here -->
+    <!-- bootstrap v3.3.6 css -->
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="~/CSS/bootstrap.min.css" rel="stylesheet" />
+    <!-- animate css -->
+    <link rel="stylesheet" href="~/CSS/animate.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="~/CSS/meanmenu.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="~/CSS/owl.carousel.css">
+    <!-- font-awesome css -->
+    <link rel="stylesheet" href="~/CSS/font-awesome.min.css">
+    <!-- flexslider.css-->
+    <link rel="stylesheet" href="~/CSS/flexslider.css">
+    <!-- chosen.min.css-->
+    <link rel="stylesheet" href="~/CSS/chosen.min.css">
+    <!-- style css -->
+    <link href="~/CSS/style.css" rel="stylesheet" />
+    <!-- responsive css -->
+    <link rel="stylesheet" href="~/CSS/responsive.css">
+    <!-- modernizr css -->
+    <script src="~/Scripts/vendor/modernizr-2.8.3.min.js"></script>
+    <link href="~/CSS/styles.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="~/JS/requestData.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="~/JS/fun.js"></script>
+    <script>
+        $(document).ready(() => {
+            request("/Accounts/GetPfofile")
+                .then(res => res.Data)
+                .then(res1 => res1.profile)
+                .then(profile => {
+                    console.log(profile)
+                    $('#username').val(profile.UserName);
+                    $('#fname').val(profile.Name);
+                    $('#mphone').val(profile.Number);
+                    $('#youremail').val(profile.Email);
+                    $('#pword').val(profile.PassWord);
+                    $('#pword2').val(profile.PassWord);
+                })
+        })
+    </script>
+</head>
+<body>
+    <!-- header-area-start -->
+    <header>
+        <!-- header-top-area-start -->
+        <div class="header-top-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="language-area">
+                            <ul>
+                                <li>
+                                    <img src="~/img/flag/1.jpg" alt="flag" /><a href="#">English<i class="fa fa-angle-down"></i></a>
+                                    <div class="header-sub">
+                                        <ul>
+                                            <li><a href="#"><img src="~/img/flag/2.jpg" alt="flag" />france</a></li>
+                                            <li><a href="#"><img src="~/img/flag/3.jpg" alt="flag" />croatia</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#">USD $<i class="fa fa-angle-down"></i></a>
+                                    <div class="header-sub dolor">
+                                        <ul>
+                                            <li><a href="#">EUR €</a></li>
+                                            <li><a href="#">USD $</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="account-area text-right">
+                            <ul>
+                                <li><a href="register.html">My Account</a></li>
+                                <li><a href="checkout.html">Checkout</a></li>
+                                @{
+                                    var link = ViewBag.linkTitleLogin;
+                                    var titleLogin = ViewBag.nameLogin;
+
+                                    if (titleLogin != "Sign In" && titleLogin != null)
+                                    {
+                                        ViewBag.nameLogin = "Logout";
+                                    }
+                                    else
+                                    {
+                                        ViewBag.nameLogin = titleLogin;
+                                    }
+                                }
+                                <li><a href="~/Home/Index">@ViewBag.nameLogin</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header-top-area-end -->
+        <!-- header-mid-area-start -->
+        <div class="header-mid-area ptb-40">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-5 col-xs-12">
+                        <div class="header-search">
+                            <form action="#">
+                                <input type="text" placeholder="Search entire store here..." />
+                                <a href="#"><i class="fa fa-search"></i></a>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12">
+                        <div class="logo-area text-center logo-xs-mrg">
+                            <h3>TTeam coffee</h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="my-cart">
+                            <ul>
+                                <li>
+                                    <a href="#"><i class="fa fa-shopping-cart"></i>My Cart</a>
+                                    <span id="sl">
+                                        0
+                                        <script>
+                                            debugger
+                                            var tmp = JSON.parse(localStorage.getItem('cartList'));
+                                            var sl = tmp.reduce((t, item) => {
+                                                debugger
+                                                return t + parseInt(item.SoLuong);
+                                            }, 0);
+                                            $('#sl').text(sl);
+                                        </script>
+                                    </span>
+
+                                    <div class="mini-cart-sub">
+                                        <div class="cart-product">
+                                            <script>
+                                                debugger
+                                                var cartList = JSON.parse(localStorage.getItem('cartList'));
+
+                                                for (var item of cartList) {
+                                                    debugger
+                                                    this.divSingleCart = $('<div>', { class: 'single-cart' }).appendTo($('.cart-product'));
+
+                                                    this.cartImage = $('<div>', { class: "cart-img" }).appendTo(this.divSingleCart);
+
+                                                    this.a = $('<a>').appendTo(this.cartImage);
+                                                    this.img = $('<img>', { src: "../" + item.Image }).appendTo(this.a);
+
+                                                    this.divCartinfo = $('<div>', { class: 'cart-info' }).appendTo(this.divSingleCart);
+                                                    this.h5 = $('<h5>').appendTo(this.divCartinfo);
+                                                    this.a2 = $('<a>', { text: item.Name }).appendTo(this.h5);
+                                                    this.p = $('<p>', { text: item.SoLuong + " x " + item.Price }).appendTo(this.divCartinfo);
+                                                    this.divCartIcon = $('<div>', { class: 'cart-icon' }).appendTo(this.divSingleCart);
+                                                    this.a3 = $('<a>').appendTo(this.divCartIcon);
+                                                    this.i = $('<i>').appendTo(this.a3);
+
+                                                }
+                                            </script>
+                                            <div class="cart-totals">
+                                                <h5>Total <span id="total"></span></h5>
+                                                <script>
+                                                    var tmp = JSON.parse(localStorage.getItem('cartList'));
+                                                    var t = tmp.reduce((total, item) => {
+                                                        return total + item.Price * item.SoLuong;
+                                                    }, 0)
+
+                                                    $('#total').text(t + "đ")
+                                                </script>
+                                            </div>
+                                            <div class="cart-bottom">
+                                                <a class="view-cart" href="../Products/viewCart">view cart</a>
+                                                <a href="checkout.html">Check out</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header-mid-area-end -->
+        <!-- main-menu-area-start -->
+        <div class="main-menu-area hidden-sm hidden-xs sticky-header-1" id="header-sticky">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="menu-area">
+                            <nav>
+                                <ul>
+                                    <li class="active">
+                                        <a href="~/Products/Index">Home<i></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="product-details.html">Product<i class="fa fa-angle-down"></i></a>
+                                        <div class="mega-menu">
+                                            <span>
+                                                <a href="#" class="title">Jackets</a>
+                                                <a href="shop.html">Tops & Tees</a>
+                                                <a href="shop.html">Polo Short Sleeve</a>
+                                                <a href="shop.html">Graphic T-Shirts</a>
+                                                <a href="shop.html">Jackets & Coats</a>
+                                                <a href="shop.html">Fashion Jackets</a>
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="#">blog<i class="fa fa-angle-down"></i></a>
+                                        <div class="sub-menu sub-menu-2">
+                                            <ul>
+                                                <li><a href="blog.html">blog</a></li>
+                                                <li><a href="blog-details.html">blog-details</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="#">pages<i class="fa fa-angle-down"></i></a>
+                                        <div class="sub-menu sub-menu-2">
+                                            <ul>
+                                                <li><a href="shop.html">shop</a></li>
+                                                <li><a href="product-details.html">product-details</a></li>
+                                                <li><a href="blog.html">blog</a></li>
+                                                <li><a href="blog-details.html">blog-details</a></li>
+                                                <li><a href="contact.html">contact</a></li>
+                                                <li><a href="about.html">about</a></li>
+                                                <li><a href="login.html">login</a></li>
+                                                <li><a href="register.html">register</a></li>
+                                                <li><a href="cart.html">cart</a></li>
+                                                <li><a href="checkout.html">checkout</a></li>
+                                                <li><a href="wishlist.html">wishlist</a></li>
+                                                <li><a href="404.html">404 Page</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="safe-area">
+                            <a href="product-details.html">Sales off</a>
+                        </div>
+                        <div class="safe-area">
+                            <a href="product-details.html">New</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- main-menu-area-end -->
+        <!-- mobile-menu-area-start -->
+        <div class="mobile-menu-area hidden-md hidden-lg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="mobile-menu">
+                            <nav id="mobile-menu-active">
+                                <ul id="nav">
+                                    <li>
+                                        <a href="index.html">Home</a>
+                                        <ul>
+                                            <li><a href="index-2.html">Home-2</a></li>
+                                            <li><a href="index-3.html">Home-3</a></li>
+                                            <li><a href="index-4.html">Home-4</a></li>
+                                            <li><a href="index-5.html">Home-5</a></li>
+                                            <li><a href="index-6.html">Home-6</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="product-details.html">Book</a>
+                                        <ul>
+                                            <li><a href="shop.html">Tops & Tees</a></li>
+                                            <li><a href="shop.html">Polo Short Sleeve</a></li>
+                                            <li><a href="shop.html">Graphic T-Shirts</a></li>
+                                            <li><a href="shop.html">Jackets & Coats</a></li>
+                                            <li><a href="shop.html">Fashion Jackets</a></li>
+                                            <li><a href="shop.html">Crochet</a></li>
+                                            <li><a href="shop.html">Sleeveless</a></li>
+                                            <li><a href="shop.html">Stripes</a></li>
+                                            <li><a href="shop.html">Sweaters</a></li>
+                                            <li><a href="shop.html">hoodies</a></li>
+                                            <li><a href="shop.html">Heeled sandals</a></li>
+                                            <li><a href="shop.html">Polo Short Sleeve</a></li>
+                                            <li><a href="shop.html">Flat sandals</a></li>
+                                            <li><a href="shop.html">Short Sleeve</a></li>
+                                            <li><a href="shop.html">Long Sleeve</a></li>
+                                            <li><a href="shop.html">Polo Short Sleeve</a></li>
+                                            <li><a href="shop.html">Sleeveless</a></li>
+                                            <li><a href="shop.html">Graphic T-Shirts</a></li>
+                                            <li><a href="shop.html">Hoodies</a></li>
+                                            <li><a href="shop.html">Jackets</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="product-details.html">Audio books</a>
+                                        <ul>
+                                            <li><a href="shop.html">Tops & Tees</a></li>
+                                            <li><a href="shop.html">Sweaters</a></li>
+                                            <li><a href="shop.html">Hoodies</a></li>
+                                            <li><a href="shop.html">Jackets & Coats</a></li>
+                                            <li><a href="shop.html">Long Sleeve</a></li>
+                                            <li><a href="shop.html">Short Sleeve</a></li>
+                                            <li><a href="shop.html">Polo Short Sleeve</a></li>
+                                            <li><a href="shop.html">Sleeveless</a></li>
+                                            <li><a href="shop.html">Sweaters</a></li>
+                                            <li><a href="shop.html">Hoodies</a></li>
+                                            <li><a href="shop.html">Wedges</a></li>
+                                            <li><a href="shop.html">Vests</a></li>
+                                            <li><a href="shop.html">Polo Short Sleeve</a></li>
+                                            <li><a href="shop.html">Sleeveless</a></li>
+                                            <li><a href="shop.html">Graphic T-Shirts</a></li>
+                                            <li><a href="shop.html">Hoodies</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="product-details.html">children’s books</a>
+                                        <ul>
+                                            <li><a href="shop.html">Shirts</a></li>
+                                            <li><a href="shop.html">Florals</a></li>
+                                            <li><a href="shop.html">Crochet</a></li>
+                                            <li><a href="shop.html">Stripes</a></li>
+                                            <li><a href="shop.html">Shorts</a></li>
+                                            <li><a href="shop.html">Dresses</a></li>
+                                            <li><a href="shop.html">Trousers</a></li>
+                                            <li><a href="shop.html">Jeans</a></li>
+                                            <li><a href="shop.html">Heeled sandals</a></li>
+                                            <li><a href="shop.html">Flat sandals</a></li>
+                                            <li><a href="shop.html">Wedges</a></li>
+                                            <li><a href="shop.html">Ankle boots</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">blog</a>
+                                        <ul>
+                                            <li><a href="blog.html">Blog</a></li>
+                                            <li><a href="blog-details.html">blog-details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="product-details.html">Page</a>
+                                        <ul>
+                                            <li><a href="shop.html">Shop</a></li>
+                                            <li><a href="product-details.html">product-details</a></li>
+                                            <li><a href="blog.html">Blog</a></li>
+                                            <li><a href="blog-details.html">blog-details</a></li>
+                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="checkout.html">Checkout</a></li>
+                                            <li><a href="cart.html">Cart</a></li>
+                                            <li><a href="login.html">Login</a></li>
+                                            <li><a href="register.html">Register</a></li>
+                                            <li><a href="wishlist.html">Wishlist</a></li>
+                                            <li><a href="404.html">404 Page</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- mobile-menu-area-end -->
+    </header>
+
+    @* body *@
+    <div class="container bootstrap snippet">
+        <div class="row">
+            <div class="col-sm-10"><h1>User name</h1></div>
+            <div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"></a></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <!--left col-->
+
+
+                <div class="text-center">
+                    <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+                    <h6>Upload a different photo...</h6>
+                    <input type="file" class="text-center center-block file-upload">
+                </div></hr><br>
+
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
+                    <div class="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div>
+                </div>
+
+
+                <ul class="list-group">
+                    <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Shares</strong></span> 125</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
+                </ul>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Social Media</div>
+                    <div class="panel-body">
+                        <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
+                    </div>
+                </div>
+
+            </div><!--/col-3-->
+            <div class="col-sm-9">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#home">Home</a></li> 
+                </ul>
+
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="home">
+                        <hr>
+                        <form class="form" action="updateProfile" method="post" id="registrationForm">
+                            <div class="form-group">
+
+                                <div class="col-xs-6">
+                                    <label for="user_name"><h4>Username</h4></label>
+                                    <input type="text" height="34px" class="form-control" name="user_name" id="username" placeholder="Fullname" disabled="true" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <div class="col-xs-6">
+                                    <label for="first_name"><h4>Full Name</h4></label>
+                                    <input type="text" class="form-control" name="full_name" id="fname" placeholder="Fullname" title="enter your full name if any.">
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <div class="col-xs-6">
+                                    <label for="phone"><h4>Phone</h4></label>
+                                    <input type="text" class="form-control" name="phone" id="mphone" placeholder="enter phone" title="enter your phone number if any.">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <div class="col-xs-6">
+                                    <label for="email"><h4>Email</h4></label>
+                                    <input type="email" class="form-control" name="email" id="youremail" placeholder="you@email.com" title="enter your email.">
+                                </div>
+                            </div>
+                            <div class="form-group"> 
+
+                                <div class="col-xs-6">
+                                    <label for="password"><h4>Password</h4></label>
+                                    <input type="password" class="form-control" name="password" id="pword" placeholder="password" title="enter your password.">
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <div class="col-xs-6">
+                                    <label for="password2"><h4>Verify</h4></label>
+                                    <input type="password" class="form-control" name="password2" id="pword2" placeholder="password2" title="enter your password2.">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <br>
+                                    <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                    <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <hr>
+
+                    </div><!--/tab-pane-->
+                    
+            </div><!--/tab-content-->
+
+        </div><!--/col-9-->
+    </div><!--/row-->
+    <!-- all js here -->
+    <!-- jquery latest version -->
+    <script src="~/Scripts/vendor/jquery-1.12.0.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="~/Scripts/jquery.meanmenu.js"></script>
+    <!-- wow js -->
+    <script src="~/Scripts/wow.min.js"></script>
+    <!-- jquery.parallax-1.1.3.js -->
+    <script src="~/Scripts/jquery.parallax-1.1.3.js"></script>
+    <!-- jquery.countdown.min.js -->
+    <script src="~/Scripts/jquery.countdown.min.js"></script>
+    <!-- jquery.flexslider.js -->
+    <script src="~/Scripts/jquery.flexslider.js"></script>
+    <!-- chosen.jquery.min.js -->
+    <script src="~/Scripts/chosen.jquery.min.js"></script>
+    <!-- jquery.counterup.min.js -->
+    <script src="~/Scripts/jquery.counterup.min.js"></script>
+    <!-- waypoints.min.js -->
+    <script src="~/Scripts/waypoints.min.js"></script>
+    <!-- plugins js -->
+    <script src="~/Scripts/plugins.js"></script>
+    <!-- main js -->
+    <script src="~/Scripts/main.js"></script>
+</body>
+</html>

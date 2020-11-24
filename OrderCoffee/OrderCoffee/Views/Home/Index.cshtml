@@ -5,6 +5,28 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
 @section scripts{
     <div id="main-container">
         <div id="main-content" class="main-content container">
@@ -69,8 +91,8 @@
                                         <ul>
                                             <li>
                                                 @*<input id="idLogin" class="input-block-level" type="text" name="id_name" placeholder="name">*@
-                                                @Html.TextBoxFor(m => m.FullName, "", new { @class = "input-block-level", @type = "text", @placeholder = "name" })
-                                                @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "badge badge-danger" })
+                                                @Html.TextBoxFor(m => m.Name, "", new { @class = "input-block-level", @type = "text", @placeholder = "name" })
+                                                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "badge badge-danger" })
                                             </li>
                                             <li>
                                                 @*<input id="idLogin" class="input-block-level" type="text" name="id_username" placeholder="username">*@
@@ -92,8 +114,8 @@
                                             </li>
                                             <li>
                                                 @*<input id="idLogin" class="input-block-level" type="text" name="id_phone" placeholder="your phone">*@
-                                                @Html.TextBoxFor(m => m.PhoneNumber, "", new { @class = "input-block-level", @type = "text", @placeholder = "your phone" })
-                                                @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "badge badge-danger" })
+                                                @Html.TextBoxFor(m => m.Number, "", new { @class = "input-block-level", @type = "text", @placeholder = "your phone" })
+                                                @Html.ValidationMessageFor(m => m.Number, "", new { @class = "badge badge-danger" })
                                             </li>
                                         </ul>
                                     </fieldset>
