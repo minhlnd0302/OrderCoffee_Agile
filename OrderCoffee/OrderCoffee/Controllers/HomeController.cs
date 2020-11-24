@@ -315,14 +315,16 @@ namespace OrderCoffee.Controllers
             var Disc_Percent = collection["Disc_Percent"];
             var Date_Start = collection["Date_Start"];
             var Date_End = collection["Date_End"];
-            string FORMAT = "dd-MM-yyyy hh:mm:ss:tt";
+            //string FORMAT = "dd-MM-yyyy hh:mm:ss:tt"; 
+            
+            
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))
             {
                 string queryInsert = "Insert Into discount_code (code, disc_percent, date_start, date_end) Values (@Code, @Disc_Percent, @Date_Start, @Date_End);";
 
                 var affectedRows = db.Execute(queryInsert, new { code = Code, disc_percent = int.Parse(Disc_Percent),
-                    date_start = DateTime.ParseExact(Date_Start, FORMAT, System.Globalization.CultureInfo.InvariantCulture),
-                    date_end = DateTime.ParseExact(Date_End, FORMAT, System.Globalization.CultureInfo.InvariantCulture)
+                    date_start = Date_Start,
+                    date_end = Date_End,
                 });
             }
 

@@ -8,8 +8,8 @@ namespace OrderCoffee.Models
 
         public int Disc_Percent { get; set; }
 
-        public DateTime Date_Start { get; set; }
+        public string Date_Start { get; set; }
 
-        public DateTime Date_End { get; set; }
+        public string Date_End { get; set; }
     }
 }
