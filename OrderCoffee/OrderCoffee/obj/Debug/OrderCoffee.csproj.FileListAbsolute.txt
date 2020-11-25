@@ -163,7 +163,6 @@ E:\agile\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\System.Web.WebPages.Razor
 E:\agile\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Newtonsoft.Json.xml
 E:\agile\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Antlr3.Runtime.pdb
 E:\agile\OrderCoffee_Agile\OrderCoffee\OrderCoffee\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\agile\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.csprojAssemblyReference.cache
 E:\agile\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.csproj.CoreCompileInputs.cache
 E:\agile\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.csproj.CopyComplete
 E:\agile\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.dll
@@ -423,3 +422,4 @@ D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.cs
 D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.dll
 D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.pdb
 D:\Project VS\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.csprojAssemblyReference.cache
+E:\agile\OrderCoffee_Agile\OrderCoffee\OrderCoffee\obj\Debug\OrderCoffee.csprojAssemblyReference.cache

@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace OrderCoffee.Controllers
 {
-    
+
     public class AccountsController : Controller
     {
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString());
@@ -33,11 +33,11 @@ namespace OrderCoffee.Controllers
 
                 Console.WriteLine(affectedRows);
             }
-             
+
             return View("Index");
         }
 
-        
+
 
         // POST: Accounts/Delete/5
         [HttpPost]
@@ -59,7 +59,7 @@ namespace OrderCoffee.Controllers
         {
             JsonResult jr = new JsonResult();
 
-            var username = Session["userName"].ToString(); 
+            var username = Session["userName"].ToString();
 
             try
             {
@@ -69,14 +69,14 @@ namespace OrderCoffee.Controllers
                 using (IDbConnection db = conn)
                 {
                     List<Account> listAccount = db.Query<Account>(query_Account).ToList();
-                    foreach(var item in listAccount)
+                    foreach (var item in listAccount)
                     {
-                        if(username == item.UserName)
+                        if (username == item.UserName)
                         {
                             profileAccount = item;
                             break;
                         }
-                    }  
+                    }
                 }
 
                 jr.Data = new

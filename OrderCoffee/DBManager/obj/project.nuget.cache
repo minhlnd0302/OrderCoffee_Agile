@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "RcsHgS2wJMt4abde08VXgyTCVEaqgmLa47AP0UWFeSF/Kbizg2+QuFejuNHv1juVoIEzwcvVAQwHZmcQ6e0EeQ==",
+  "dgSpecHash": "Mv+L82Uz9g1OsAGGR6ChiC6CEf9hczroDw5YjLdGcaf0e0EVV9yRvqFiiSK6AGfiypo9vQktd+6hNwphynxL9w==",
   "success": true,
   "projectFilePath": "E:\\agile\\OrderCoffee_Agile\\OrderCoffee\\DBManager\\DatabaseProject.csproj",
   "expectedPackageFiles": [
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
-    "C:\\Users\\DUY PC\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+    "C:\\Users\\Minhlnd\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Minhlnd\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Minhlnd\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
   ],
   "logs": []
 }

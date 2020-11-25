@@ -221,8 +221,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DUY PC\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Minhlnd\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -230,14 +229,11 @@
       "projectUniqueName": "E:\\agile\\OrderCoffee_Agile\\OrderCoffee\\DBManager\\DatabaseProject.csproj",
       "projectName": "DatabaseProject",
       "projectPath": "E:\\agile\\OrderCoffee_Agile\\OrderCoffee\\DBManager\\DatabaseProject.csproj",
-      "packagesPath": "C:\\Users\\DUY PC\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Minhlnd\\.nuget\\packages\\",
       "outputPath": "E:\\agile\\OrderCoffee_Agile\\OrderCoffee\\DBManager\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\DUY PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Minhlnd\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -282,7 +278,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

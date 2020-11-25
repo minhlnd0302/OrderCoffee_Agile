@@ -190,10 +190,12 @@
                                 <button class="w2ui-btn" onclick="editProduct();">Edit product</button>
                                 <button class="w2ui-btn" onclick="addProduct();">Add product</button>
                                 <button class="w2ui-btn" onclick="removeProduct();">Remove product</button>
-                                <script>
+
 
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="addImages();">Add Images</button>
-                                <script> 
+
+                                <Script>
+
                                     var products = @Html.Raw(Json.Encode(ViewBag.listProduct));
                                     var listCategory = @Html.Raw(Json.Encode(ViewBag.listCategory));
 
@@ -245,8 +247,6 @@
                                         }
 
                                         sessionStorage.setItem("currentProduct", productSelected)
-
-
                                     }
 
                                     function editProduct() {
@@ -272,7 +272,7 @@
                                         sessionStorage.setItem('idProductCurrent', productSelected);
                                         showConfirmRemove();
                                     }
-                                </script>
+                                </Script>
 
                             </div>
                             <!-- // Widget -->
@@ -304,8 +304,8 @@
                                 <div id="gird_code" class="widget widget-simple widget-table" style="width: 100%; height: 250px;"></div>
                                 <br>
                                 <button class="w2ui-btn" onclick="w2ui.gird_code.selectAll();">Select All</button>
-                                <button class="w2ui-btn" onclick="w2ui.gird_code.selectNone();">Select None</button> 
-                                <button class="w2ui-btn" onclick="addCoupon();">Add Coupon</button> 
+                                <button class="w2ui-btn" onclick="w2ui.gird_code.selectNone();">Select None</button>
+                                <button class="w2ui-btn" onclick="addCoupon();">Add Coupon</button>
                                 <script>
                                     var discount_code = @Html.Raw(Json.Encode(ViewBag.listDiscount_Code));
 
@@ -534,34 +534,34 @@
         </div>
 
         @*<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    @using (Html.BeginForm("UploadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" , id = "1"}))
-                    {
-                        <div>
-                            @Html.TextBox("file", "", new { type = "file" }) <br />
-                            <input type="submit" value="Upload" />
-                            @ViewBag.Message
-                        </div>
-                    }
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        @using (Html.BeginForm("UploadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" , id = "1"}))
+                        {
+                            <div>
+                                @Html.TextBox("file", "", new { type = "file" }) <br />
+                                <input type="submit" value="Upload" />
+                                @ViewBag.Message
+                            </div>
+                        }
+                    </div>
                 </div>
-            </div>
-        </div>*@
+            </div>*@
 
         @* add image *@
         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
              aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content"> 
+                <div class="modal-content">
                     @using (Html.BeginForm("UploadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
                     {
                         <div>
-                            <label style="font-size : 20px; color:white " >Id sản phẩm :</label>
+                            <label style="font-size : 20px; color:white ">Id sản phẩm :</label>
                             <input type="text" id="idProduct" name="productId" />
                             <script>
                                 setInterval(_ => {
-                                    $('#idProduct').val(sessionStorage.getItem("currentProduct")); 
-                                },100) 
+                                    $('#idProduct').val(sessionStorage.getItem("currentProduct"));
+                                }, 100)
                             </script>
                             @Html.TextBox("file", "", new { type = "file" }) <br />
                             <input type="submit" value="Upload" />
