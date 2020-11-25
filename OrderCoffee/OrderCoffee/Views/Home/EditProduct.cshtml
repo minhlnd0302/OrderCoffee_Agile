@@ -203,6 +203,7 @@
                                         delete item['Id'];
                                     }
                                     console.log(products)
+                                    console.log(listCategory)
                                     $('#grid').w2grid({
                                         name: 'grid',
                                         show: {
@@ -276,10 +277,106 @@
 
                         </div>
                         <!-- // Column -->
-
+                    </section>
                 </div>
                 <!-- // Example row -->
-                </section>
+
+                <div class="row-fluid page-head">
+                    <h2 class="page-title">
+                        <i class="aweso-icon-table"></i> Coupon Page
+                    </h2>
+                    <div class="page-bar">
+                        <div class="btn-toolbar"> </div>
+                    </div>
+                </div>
+
+                <div id="page-content" class="page-content">
+                    <section>
+                        <div class="page-header">
+                            <h3>
+                                <i class="aweso-icon-table opaci35"></i>Coupon Management
+                            </h3>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <div id="gird_code" class="widget widget-simple widget-table" style="width: 100%; height: 250px;"></div>
+                                <br>
+                                <button class="w2ui-btn" onclick="w2ui.gird_code.selectAll();">Select All</button>
+                                <button class="w2ui-btn" onclick="w2ui.gird_code.selectNone();">Select None</button> 
+                                <button class="w2ui-btn" onclick="addCoupon();">Add Coupon</button> 
+                                <script>
+                                    var discount_code = @Html.Raw(Json.Encode(ViewBag.listDiscount_Code));
+
+                                    console.log(discount_code)
+
+                                    for (var index = 0; index < discount_code.length; index++) {
+                                        discount_code[index].recid = index + 1;
+                                    }
+
+                                    sessionStorage.setItem('listdiscount_code', JSON.stringify(discount_code));
+
+                                    $('#gird_code').w2grid({
+                                        name: 'gird_code',
+                                        show: {
+                                            toolbar: true,
+                                            footer: true
+                                        },
+                                        multiSearch: true,
+                                        searches: [
+                                            { field: 'recid', caption: 'ID ', type: 'text' },
+                                            { field: 'Code', caption: 'ID Code', type: 'text' },
+                                            { field: 'Disc_Percent', caption: 'Percent', type: 'int' },
+                                            { field: 'Date_Start', caption: 'Date start', dateFormat: 'Y/m/d H:i:s', type: 'date'  },
+                                            { field: 'Date_End', caption: 'Date end', type: 'date', dateFormat: 'Y/m/d H:i:s' }
+                                        ],
+                                        columns: [
+                                            { field: 'recid', caption: 'ID', size: '50px', sortable: true, size: '10%' },
+                                            { field: 'Code', caption: 'Code', size: '30%', sortable: true },
+                                            { field: 'Disc_Percent', caption: 'Percent', size: '10%', sortable: true },
+                                            { field: 'Date_Start', caption: 'Date start', size: '25%', dateFormat: 'Y/m/d H:i:s' },
+                                            { field: 'Date_End', caption: 'Date end', size: '25%' },
+                                        ],
+                                        records: discount_code
+                                    });
+
+                                    function addCoupon() {
+                                        debugger
+                                        popupAddCode();
+                                    }
+
+                                    function editCoupon() {
+                                        var couponSelected = w2ui['gird_code'].getSelection();
+                                        if (couponSelected.length > 1 || couponSelected.length < 1) {
+                                            alert('Please choice a Coupon !');
+                                            return;
+                                        }
+
+                                        var infoProductSelected = w2ui['gird_code'].records.filter(item => {
+                                            return item.recid == couponSelected;
+                                        })
+                                        debugger
+                                        console.log(infoProductSelected);
+
+                                        sessionStorage.setItem('idCouponCurrent', infoProductSelected[0].recid);
+
+                                        popupEditCoupon(infoProductSelected);
+                                    }
+
+                                    function removeCoupon() {
+                                        var productSelected = w2ui['gird_code'].getSelection();
+                                        sessionStorage.setItem('idCouponCurrent', productSelected);
+                                        showConfirmRemoveCoupon();
+                                    }
+                                </script>
+
+                            </div>
+                            <!-- // Widget -->
+
+                        </div>
+                        <!-- // Column -->
+                    </section>
+                </div>
+
             </div>
             <!-- // page content -->
 

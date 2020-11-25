@@ -31,6 +31,29 @@
 
 }
 
+function popupEditCoupon(infoProduct) {
+    w2popup.open({
+        width: 580,
+        height: 350,
+        title: 'Edit Product',
+        body: '<div class="w2ui-centered" style="line-height: 1.8">' +
+            '     Code: <input class="w2ui-input" style="margin-bottom: 5px" id="code" ><br>' +
+            '     Precent: <input class="w2ui-input" style="margin-bottom: 5px" id="precent" ><br>' +
+            '     Date Start: <input type="datetime" style="margin-bottom: 5px" id="datestart" ><br>' +
+            '     Date End: <input type="datetime" style="margin-bottom: 5px" id="dateend" ><br>' +
+            '  </div>',
+        buttons: '<button class="w2ui-btn" onclick="saveDataUpdateCoupon()">Save</button>' +
+            '<button class="w2ui-btn" onclick="w2popup.close()">Cancel</button>'
+    });
+
+    debugger
+    infoProduct = infoProduct[0];
+
+    $('#price').val(infoProduct.precent);
+    $('#description').val(infoProduct.datestart);
+    $('#description').val(infoProduct.dateend);
+}
+
 function popupAddProduct() {
     w2popup.open({
         width: 580,
@@ -46,9 +69,25 @@ function popupAddProduct() {
         buttons: '<button class="w2ui-btn" onclick="addproduct()">Add</button>' +
             '<button class="w2ui-btn" onclick="w2popup.close()">Cancel</button>'
     }); 
+}
 
-    
+function popupAddCode() {
+    w2popup.open({
+        width: 580,
+        height: 350,
+        title: 'Add Code',
+        body: '<div class="w2ui-centered" style="line-height: 1.8">' +
+            '     Enter new product information !<br/><br/>' +
+            '     Code: <input class="w2ui-input" style="margin-bottom: 5px" id="code" ><br>' +
+            '     Precent: <input class="w2ui-input" style="margin-bottom: 5px" id="precent" ><br>' +
+            '     Date Start: <input type="datetime" style="margin-bottom: 5px" id="datestart" ><br>' +
+            '     Date End: <input type="datetime" style="margin-bottom: 5px" id="dateend" ><br>' +
+            '  </div>',
+        buttons: '<button class="w2ui-btn" onclick="addcoupon()">Add</button>' +
+            '<button class="w2ui-btn" onclick="w2popup.close()">Cancel</button>'
+    });
 
+    // chua dinh dang dc ngay thang nam
 }
 
 function addproduct() {
@@ -62,6 +101,16 @@ function addproduct() {
     console.log(dataNewProduct)
 }
 
+function addcoupon() {
+    var dataNewCoupon = getDataUpdateCoupon();
+    var postUrl = '/Home/addCoupon'
+
+    request(postUrl, dataNewCoupon).then(res => {
+        console.log("OK");
+        w2popup.close()
+    })
+    console.log(dataNewCoupon)
+}
 
 
 function showConfirmRemove() {
@@ -94,6 +143,22 @@ function remove() {
     })
 }
 
+function showConfirmRemoveCoupon() {
+    debugger
+    w2confirm('Are you sure you want to delete this coupon?')
+        .yes(function () {
+            debugger
+            var postUrl = '/Home/removeCoupon';
+            var id = sessionStorage.getItem('idProductCurrent');
+            request(postUrl, { 'Id': id }).then(res => {
+            })
+        })
+        .no(function () { console.log('NO'); });
+
+    debugger
+
+}
+
 function getFilePath() {
     $('input[type=file]').change(function () {
         var filePath = $('#fileUpload').val();
@@ -110,6 +175,14 @@ function dataProduct(productname, price, description, category, filepath) {
     this.Image = filepath;
     //this.Quantity = 0;
 } 
+
+function dataCoupon(code, precent, datestart, dateend) {
+    this.Id = sessionStorage.getItem('idCouponCurrent');
+    this.Code = code;
+    this.Disc_Percent = precent;
+    this.Date_Start = datestart;
+    this.Date_End = dateend;
+}
 
 function getDataUpdate(i) {
     debugger
@@ -141,8 +214,37 @@ function saveDataUpdate() {
     })
 
     w2popup.close()
+}
 
+function getDataUpdateCoupon (i) {
+    debugger
+    console.log(i);
+    var code = $('#code').val();
+    var precent = $('#precent').val();
+    var datestart = $('#datestart').val();
+    var dateend = $('#dateend').val();
 
+    var updateCouponData = new dataCoupon(code, precent, datestart, dateend);
+    debugger
+    console.log(code);
+    return updateCouponData;
+}
+
+function saveDataUpdateCoupon() {
+    var dataUpdate = getDataUpdateCoupon();
+
+    var postUrl = '/Home/updateCoupon';
+
+    request(postUrl, dataUpdate).then(res => {
+        if (res.data.status === 'OK') {
+            alert('Edit complete !')
+        }
+        else {
+            alert('Error !')
+        }
+    })
+
+    w2popup.close()
 }
 
 function getListCategoryName() {

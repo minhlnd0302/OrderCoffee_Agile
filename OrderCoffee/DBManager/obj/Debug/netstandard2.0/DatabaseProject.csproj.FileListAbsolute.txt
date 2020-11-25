@@ -25,3 +25,12 @@ D:\CAFE\CODE\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.Asse
 D:\CAFE\CODE\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.csproj.CoreCompileInputs.cache
 D:\CAFE\CODE\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.dll
 D:\CAFE\CODE\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.pdb
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\DBManager\bin\Debug\netstandard2.0\DatabaseProject.deps.json
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\DBManager\bin\Debug\netstandard2.0\DatabaseProject.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\DBManager\bin\Debug\netstandard2.0\DatabaseProject.pdb
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.AssemblyInfoInputs.cache
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.AssemblyInfo.cs
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.dll
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.pdb
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.csproj.CoreCompileInputs.cache
+D:\Project VS\OrderCoffee_Agile\OrderCoffee\DBManager\obj\Debug\netstandard2.0\DatabaseProject.csprojAssemblyReference.cache

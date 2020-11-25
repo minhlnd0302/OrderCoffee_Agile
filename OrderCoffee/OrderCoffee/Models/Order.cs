@@ -9,11 +9,10 @@ namespace OrderCoffee.Models
     public class Order
     {
         public string Id { get; set; }
-        public string Id_Customer { get; set; }
+        public long Id_Customer { get; set; }
         public int Temp_Total { get; set; }
         public int Discount { get; set; }
         public int Total { get; set; }
-        public string Deli_Address { get; set; }
         public int Status { get; set; }
     }
 }

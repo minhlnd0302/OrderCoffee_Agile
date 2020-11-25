@@ -8,6 +8,7 @@ namespace OrderCoffee.Models
 {
     public class Account
     {
+        public long id_customer { get; set; }
         [Required]
         [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}")]
         public string UserName { get; set; }
@@ -23,6 +24,10 @@ namespace OrderCoffee.Models
         [Required]
         [StringLength(10, MinimumLength = 3)]
         public string Number { get; set; }
+
+        [Required]
+        [StringLength(150, MinimumLength = 10)]
+        public string Address { get; set; }
 
         [Required]
         [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}")]

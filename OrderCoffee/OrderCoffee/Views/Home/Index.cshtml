@@ -109,6 +109,10 @@
                                                 }
                                             </li>
                                             <li>
+                                                @Html.TextBoxFor(m => m.Address, "", new { @class = "input-block-level", @type = "text", @placeholder = "address" })
+                                                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "badge badge-danger" })
+                                            </li>
+                                            <li>
                                                 @*<input id="idLogin" class="input-block-level" type="text" name="id_phone" placeholder="your phone">*@
                                                 @Html.TextBoxFor(m => m.Number, "", new { @class = "input-block-level", @type = "text", @placeholder = "your phone" })
                                                 @Html.ValidationMessageFor(m => m.Number, "", new { @class = "badge badge-danger" })
