@@ -1,6 +1,4 @@
 ﻿using Dapper;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using OrderCoffee.Common;
 using OrderCoffee.Models;
 using System.Collections.Generic;
