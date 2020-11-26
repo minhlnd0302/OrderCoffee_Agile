@@ -350,7 +350,6 @@ namespace OrderCoffee.Controllers
             var Disc_Percent = collection["Disc_Percent"];
             var Date_Start = collection["Date_Start"];
             var Date_End = collection["Date_End"];
-            //string FORMAT = "dd-MM-yyyy hh:mm:ss:tt"; 
 
 
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))

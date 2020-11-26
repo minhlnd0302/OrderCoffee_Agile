@@ -71,13 +71,26 @@ function popupAddProduct() {
     }); 
 }
 
+function addproduct() {
+    var dataNewProduct = getDataUpdate();
+    var postUrl = '/Home/addProduct'
+
+    request(postUrl, dataNewProduct).then(res => {
+        console.log("OK");
+        w2popup.close()
+    })
+    console.log(dataNewProduct)
+}
+
+// ------------------ Coupon ------------------------- //
+
 function popupAddCode() {
     w2popup.open({
         width: 580,
         height: 350,
         title: 'Add Code',
         body: '<div class="w2ui-centered" style="line-height: 1.8">' +
-            '     Enter new product information !<br/><br/>' +
+            '     Enter new coupon information !<br/><br/>' +
             '     Code: <input class="w2ui-input" style="margin-bottom: 5px" id="code" ><br>' +
             '     Precent: <input class="w2ui-input" style="margin-bottom: 5px" id="precent" ><br>' +
             '     Date Start: <input type="datetime" style="margin-bottom: 5px" id="datestart" ><br>' +
@@ -90,27 +103,82 @@ function popupAddCode() {
     // chua dinh dang dc ngay thang nam
 }
 
-function addproduct() {
-    var dataNewProduct = getDataUpdate();
-    var postUrl = '/Home/addProduct'
+function Request(postUrl, postData) {
+    console.log(postUrl);
+    return $.post(postUrl, postData,
+        function (res, status) {
+            return res;
+        }
+    )
+}
 
-    request(postUrl, dataNewProduct).then(res => {
-        console.log("OK");
-        w2popup.close()
-    })
-    console.log(dataNewProduct)
+function dataCoupon(code, precent, datestart, dateend) {
+    this.Id = sessionStorage.getItem('idCouponCurrent');
+    this.Code = code;
+    this.Disc_Percent = precent;
+    this.Date_Start = datestart;
+    this.Date_End = dateend;
 }
 
 function addcoupon() {
     var dataNewCoupon = getDataUpdateCoupon();
     var postUrl = '/Home/addCoupon'
 
-    request(postUrl, dataNewCoupon).then(res => {
-        console.log("OK");
+    Request(postUrl, dataNewCoupon).then(res => {
+        alert("Add coupon complete !!!");
         w2popup.close()
     })
     console.log(dataNewCoupon)
 }
+
+function getDataUpdateCoupon(i) {
+    debugger
+    console.log(i);
+    var code = $('#code').val();
+    var precent = $('#precent').val();
+    var datestart = $('#datestart').val();
+    var dateend = $('#dateend').val();
+
+    var updateCouponData = new dataCoupon(code, precent, datestart, dateend);
+    debugger
+    console.log(code);
+    return updateCouponData;
+}
+
+function saveDataUpdateCoupon() {
+    var dataUpdate = getDataUpdateCoupon();
+
+    var postUrl = '/Home/updateCoupon';
+
+    Request(postUrl, dataUpdate).then(res => {
+        if (res.data.status === 'OK') {
+            alert('Edit complete !')
+        }
+        else {
+            alert('Error !')
+        }
+    })
+
+    w2popup.close()
+}
+
+function showConfirmRemoveCoupon() {
+    debugger
+    w2confirm('Are you sure you want to delete this coupon?')
+        .yes(function () {
+            debugger
+            var postUrl = '/Home/removeCoupon';
+            var id = sessionStorage.getItem('idProductCurrent');
+            request(postUrl, { 'Id': id }).then(res => {
+            })
+        })
+        .no(function () { console.log('NO'); });
+
+    debugger
+
+}
+
+// ----------------------- Coupon ---------------------- //
 
 
 function showConfirmRemove() {
@@ -143,22 +211,6 @@ function remove() {
     })
 }
 
-function showConfirmRemoveCoupon() {
-    debugger
-    w2confirm('Are you sure you want to delete this coupon?')
-        .yes(function () {
-            debugger
-            var postUrl = '/Home/removeCoupon';
-            var id = sessionStorage.getItem('idProductCurrent');
-            request(postUrl, { 'Id': id }).then(res => {
-            })
-        })
-        .no(function () { console.log('NO'); });
-
-    debugger
-
-}
-
 function getFilePath() {
     $('input[type=file]').change(function () {
         var filePath = $('#fileUpload').val();
@@ -175,14 +227,6 @@ function dataProduct(productname, price, description, category, filepath) {
     this.Image = filepath;
     //this.Quantity = 0;
 } 
-
-function dataCoupon(code, precent, datestart, dateend) {
-    this.Id = sessionStorage.getItem('idCouponCurrent');
-    this.Code = code;
-    this.Disc_Percent = precent;
-    this.Date_Start = datestart;
-    this.Date_End = dateend;
-}
 
 function getDataUpdate(i) {
     debugger
@@ -216,36 +260,6 @@ function saveDataUpdate() {
     w2popup.close()
 }
 
-function getDataUpdateCoupon (i) {
-    debugger
-    console.log(i);
-    var code = $('#code').val();
-    var precent = $('#precent').val();
-    var datestart = $('#datestart').val();
-    var dateend = $('#dateend').val();
-
-    var updateCouponData = new dataCoupon(code, precent, datestart, dateend);
-    debugger
-    console.log(code);
-    return updateCouponData;
-}
-
-function saveDataUpdateCoupon() {
-    var dataUpdate = getDataUpdateCoupon();
-
-    var postUrl = '/Home/updateCoupon';
-
-    request(postUrl, dataUpdate).then(res => {
-        if (res.data.status === 'OK') {
-            alert('Edit complete !')
-        }
-        else {
-            alert('Error !')
-        }
-    })
-
-    w2popup.close()
-}
 
 function getListCategoryName() {
     var listCategory = JSON.parse(sessionStorage.getItem('listCategory')); 
