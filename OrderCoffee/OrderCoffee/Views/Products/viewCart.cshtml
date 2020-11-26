@@ -281,6 +281,13 @@
                                 @*<a type="submit" onclick="applydiscount()">Apply Coupon</a>*@
                             </form>
                         </div>
+                        <div class="coupon">
+                            <h3>Địa chỉ</h3>
+                            <p>Vui lòng nhập địa chỉ nhận hàng!</p>
+                            <form action="#">
+                                <input id="deli_address" type="text" placeholder="address.." style="width: 500px;">
+                            </form>
+                        </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                         <div class="cart_totals">
@@ -328,8 +335,6 @@
                                                 return t + item.Price * item.SoLuong;
                                             }, 0)
                                             $('#total1, #total2').text(total + "đ")
-                                        
-
                                         
                                     </script>
                                 </tbody>
@@ -492,7 +497,8 @@
             function applydiscount() {
                 return document.getElementById("coupon").value;
             }
-
+           
+               
             function proceedToCheckout() {
                 var cartList = JSON.parse(localStorage.getItem('cartList'));
 
@@ -500,11 +506,13 @@
                     return t + item.Price * item.SoLuong;
                 }, 0)
                 var coupon = applydiscount();
+                var deli_address = document.getElementById("deli_address").value;
                 $.ajax({
                     url: "CheckOut",
                     data: {
                         p: window.localStorage.getItem('cartList'),
                         tmp_total: total,
+                        address: deli_address,
                         discountcode: coupon
                         },
                     type: "POST",
@@ -513,8 +521,11 @@
                         debugger;
                         if (response == true) {
                             window.localStorage.clear();
-                            alert("ok ban oi");
+                            alert("đặt hàng thành công ");
                             location.reload();
+                        }
+                        else {
+                            alert("Vui lòng kiểm tra lại địa chỉ trước khi checkout");
                         }
                         console.log(response);
                     }

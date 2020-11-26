@@ -14,5 +14,6 @@ namespace OrderCoffee.Models
         public int Discount { get; set; }
         public int Total { get; set; }
         public int Status { get; set; }
+        public string deli_address { get; set; }
     }
 }
