@@ -40,6 +40,7 @@
     <script src="~/assets/js/w2ui-1.5.rc1.min.js"></script>
     <link href="~/assets/css/w2ui-1.5.rc1.css" rel="stylesheet" />
     <script src="~/assets/js/w2ui-1.5.rc1.js"></script>
+
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -192,7 +193,8 @@
                                 <button class="w2ui-btn" onclick="removeProduct();">Remove product</button>
 
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="addImages();">Add Images</button>
-                                <script> 
+                                <script>
+
                                     var products = @Html.Raw(Json.Encode(ViewBag.listProduct));
                                     var listCategory = @Html.Raw(Json.Encode(ViewBag.listCategory));
 
@@ -303,9 +305,10 @@
                                 <div id="gird_code" class="widget widget-simple widget-table" style="width: 100%; height: 250px;"></div>
                                 <br>
                                 <button class="w2ui-btn" onclick="w2ui.gird_code.selectAll();">Select All</button>
-                                <button class="w2ui-btn" onclick="w2ui.gird_code.selectNone();">Select None</button> 
-                                <button class="w2ui-btn" onclick="addCoupon();">Add Coupon</button> 
-                                <script>
+                                <button class="w2ui-btn" onclick="w2ui.gird_code.selectNone();">Select None</button>
+                                <button class="w2ui-btn" onclick="editCoupon();">Edit Coupon</button>
+                                <button class="w2ui-btn" onclick="addCoupon()">Add Coupon</button>
+                                <script type="text/javascript">
                                     var discount_code = @Html.Raw(Json.Encode(ViewBag.listDiscount_Code));
 
                                     console.log(discount_code)
@@ -327,14 +330,14 @@
                                             { field: 'recid', caption: 'ID ', type: 'text' },
                                             { field: 'Code', caption: 'ID Code', type: 'text' },
                                             { field: 'Disc_Percent', caption: 'Percent', type: 'int' },
-                                            { field: 'Date_Start', caption: 'Date start', dateFormat: 'Y/m/d H:i:s', type: 'date'  },
-                                            { field: 'Date_End', caption: 'Date end', type: 'date', dateFormat: 'Y/m/d H:i:s' }
+                                            { field: 'Date_Start', caption: 'Date start', type: 'date', render: 'date:yyyy.mm.dd'  },
+                                            { field: 'Date_End', caption: 'Date end', type: 'date', render: 'date:yyyy.mm.dd' }
                                         ],
                                         columns: [
                                             { field: 'recid', caption: 'ID', size: '50px', sortable: true, size: '10%' },
                                             { field: 'Code', caption: 'Code', size: '30%', sortable: true },
                                             { field: 'Disc_Percent', caption: 'Percent', size: '10%', sortable: true },
-                                            { field: 'Date_Start', caption: 'Date start', size: '25%', dateFormat: 'Y/m/d H:i:s' },
+                                            { field: 'Date_Start', caption: 'Date start', size: '25%' },
                                             { field: 'Date_End', caption: 'Date end', size: '25%' },
                                         ],
                                         records: discount_code
@@ -377,7 +380,6 @@
                         <!-- // Column -->
                     </section>
                 </div>
-
             </div>
             <!-- // page content -->
 

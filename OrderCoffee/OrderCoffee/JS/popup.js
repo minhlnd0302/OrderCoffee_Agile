@@ -37,10 +37,14 @@ function popupEditCoupon(infoProduct) {
         height: 350,
         title: 'Edit Product',
         body: '<div class="w2ui-centered" style="line-height: 1.8">' +
-            '     Code: <input class="w2ui-input" style="margin-bottom: 5px" id="code" ><br>' +
-            '     Precent: <input class="w2ui-input" style="margin-bottom: 5px" id="precent" ><br>' +
-            '     Date Start: <input type="datetime" style="margin-bottom: 5px" id="datestart" ><br>' +
-            '     Date End: <input type="datetime" style="margin-bottom: 5px" id="dateend" ><br>' +
+            '     Precent: <select id="precent">' +
+            '        <option value="10">10%</option>' +
+            '        <option value="20">20%</option>' +
+            '        <option value="30">30%</option>' +
+            '        <option value="40">40%</option>' +
+            '        </select ><br>' +
+            '     Date Start: <input type="date" style="margin-bottom: 5px" id="datestart" ><br>' +
+            '     Date End: <input type="date" style="margin-bottom: 5px" id="dateend" ><br>' +
             '  </div>',
         buttons: '<button class="w2ui-btn" onclick="saveDataUpdateCoupon()">Save</button>' +
             '<button class="w2ui-btn" onclick="w2popup.close()">Cancel</button>'
@@ -50,8 +54,15 @@ function popupEditCoupon(infoProduct) {
     infoProduct = infoProduct[0];
 
     $('#price').val(infoProduct.precent);
-    $('#description').val(infoProduct.datestart);
-    $('#description').val(infoProduct.dateend);
+    $('#datestart').val(infoProduct.datestart);
+    $('#dateend').val(infoProduct.dateend);
+
+    var listdiscountCode = JSON.parse(sessionStorage.getItem('listdiscount_code'));
+
+    var categoryName = listdiscountCode.filter(item => {
+        return item.Id == infoProduct.Id_Category;
+    })
+    //$('#category').val(categoryName[0].Category_Name);
 }
 
 function popupAddProduct() {
@@ -92,15 +103,18 @@ function popupAddCode() {
         body: '<div class="w2ui-centered" style="line-height: 1.8">' +
             '     Enter new coupon information !<br/><br/>' +
             '     Code: <input class="w2ui-input" style="margin-bottom: 5px" id="code" ><br>' +
-            '     Precent: <input class="w2ui-input" style="margin-bottom: 5px" id="precent" ><br>' +
-            '     Date Start: <input type="datetime" style="margin-bottom: 5px" id="datestart" ><br>' +
-            '     Date End: <input type="datetime" style="margin-bottom: 5px" id="dateend" ><br>' +
+            '     Precent: <select id="precent">' +
+            '        <option value="10">10%</option>' +
+            '        <option value="20">20%</option>' +
+            '        <option value="30">30%</option>' +
+            '        <option value="40">40%</option>' +
+            '        </select ><br>' +
+            '     Date Start: <input type="date" style="margin-bottom: 5px" id="datestart" ><br>' +
+            '     Date End: <input type="date" style="margin-bottom: 5px" id="dateend" ><br>' +
             '  </div>',
         buttons: '<button class="w2ui-btn" onclick="addcoupon()">Add</button>' +
             '<button class="w2ui-btn" onclick="w2popup.close()">Cancel</button>'
     });
-
-    // chua dinh dang dc ngay thang nam
 }
 
 function Request(postUrl, postData) {
@@ -129,6 +143,14 @@ function addcoupon() {
         w2popup.close()
     })
     console.log(dataNewCoupon)
+}
+function poll() {
+    xhr.send(null);
+}
+
+function doit() {
+    var result = this.response;
+    result = JSON.parse(result);
 }
 
 function getDataUpdateCoupon(i) {

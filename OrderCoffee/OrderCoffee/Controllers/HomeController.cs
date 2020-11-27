@@ -360,8 +360,8 @@ namespace OrderCoffee.Controllers
                 {
                     code = Code,
                     disc_percent = int.Parse(Disc_Percent),
-                    date_start = Date_Start,
-                    date_end = Date_End,
+                    date_start = System.DateTime.ParseExact(Date_Start, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture),
+                    date_end = System.DateTime.ParseExact(Date_End, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture),
                 });
             }
 
