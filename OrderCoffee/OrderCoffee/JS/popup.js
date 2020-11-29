@@ -95,8 +95,9 @@ function addproduct() {
 
 function showProducts() {
     debugger
-    request('/Home/getInfoListProduct').then(res => {
-        console.log(res.Data);
+    request('/Home/getInfoListProduct', {}).then(res => {
+        debugger
+        console.log(res.data);
     })
     //var products = @Html.Raw(Json.Encode(ViewBag.listProduct));
     //var listCategory = @Html.Raw(Json.Encode(ViewBag.listCategory));

@@ -164,3 +164,10 @@ function setProfile() {
             $('#pword2').val(profile.PassWord);
         })
 }
+function request(postUrl, postData) {
+    return $.post(postUrl, postData,
+        function (res, status) {
+            return res;
+        }
+    )
+}
