@@ -8,7 +8,7 @@
             '     Product Name:<input class="w2ui-input" style="margin-bottom: 5px" id="productname" ><br>' +
             '     Price : <input class="w2ui-input" style="margin-bottom: 5px" id="price" ><br>' +
             '     Description: <input class="w2ui-input" style="margin-bottom: 5px" id="description" ><br>' +
-            '     Category: <input class="w2ui-input" style="margin-bottom: 5px" id="category" ><br>' +
+            '     Category: <select id="category" class="w2ui-input" style="margin-bottom: 5px" name="category"><option value="Coffee Decaf">Coffee Decaf</option><option value="Coffee Moka">Coffee Moka</option><option value="Coffee Culi">Coffee Culi</option><option value="Cherry">Cherry</option><option value="Arabica">Arabica</option><option value="Robusta">Robusta</option></select> <br>' +
             '  </div>',
         buttons: '<button class="w2ui-btn" onclick="saveDataUpdate()">Save</button>' +
             '<button class="w2ui-btn" onclick="w2popup.close()">Cancel</button>'
@@ -75,7 +75,7 @@ function popupAddProduct() {
             '     Product Name:<input class="w2ui-input" style="margin-bottom: 5px" id="productname" ><br>' +
             '     Price : <input class="w2ui-input" style="margin-bottom: 5px" id="price" ><br>' +
             '     Description: <input class="w2ui-input" style="margin-bottom: 5px" id="description" ><br>' +
-            '     Category: <input class="w2ui-input" style="margin-bottom: 5px" id="category" ><br>' +
+            '     Category: <select id="category" class="w2ui-input" style="margin-bottom: 5px" name="category"><option value="Coffee Decaf">Coffee Decaf</option><option value="Coffee Moka">Coffee Moka</option><option value="Coffee Culi">Coffee Culi</option><option value="Cherry">Cherry</option><option value="Arabica">Arabica</option><option value="Robusta">Robusta</option></select> <br>' +
             '  </div>',
         buttons: '<button class="w2ui-btn" onclick="addproduct()">Add</button>' +
             '<button class="w2ui-btn" onclick="w2popup.close()">Cancel</button>'
@@ -91,6 +91,91 @@ function addproduct() {
         w2popup.close()
     })
     console.log(dataNewProduct)
+}
+
+function showProducts() {
+    debugger
+    request('/Home/getInfoListProduct').then(res => {
+        console.log(res.Data);
+    })
+    //var products = @Html.Raw(Json.Encode(ViewBag.listProduct));
+    //var listCategory = @Html.Raw(Json.Encode(ViewBag.listCategory));
+
+    sessionStorage.setItem('listCategory', JSON.stringify(listCategory));
+
+    for (var item of products) {
+        delete item['Image'];
+        item.recid = item.Id;
+        delete item['Id'];
+    }
+    console.log(products)
+    console.log(listCategory)
+    $('#grid').w2grid({
+        name: 'grid',
+        show: {
+            toolbar: true,
+            footer: true
+        },
+        multiSearch: true,
+        searches: [
+            { field: 'recid', caption: 'ID ', type: 'text' },
+            { field: 'Id_Category', caption: 'ID Category', type: 'text' },
+            { field: 'Name', caption: 'Name product', type: 'text' },
+            { field: 'Price', caption: 'Price', type: 'int' },
+            { field: 'Description', caption: 'Description', type: 'text' },
+            { field: 'Quantity', caption: 'Quantity', type: 'int' }
+        ],
+        columns: [
+            { field: 'recid', caption: 'ID', size: '50px', sortable: true, size: '10%' },
+            { field: 'Id_Category', caption: 'ID Category', size: '10%', sortable: true },
+            { field: 'Name', caption: 'Name product', size: '20%', sortable: true },
+            { field: 'Price', caption: 'Price', size: '10%', sortable: true },
+            { field: 'Description', caption: 'Description', size: '60%' },
+            { field: 'Quantity', caption: 'Quantity', size: '8%' }
+        ],
+        records: products
+    });
+
+    function addProduct() {
+        debugger
+        popupAddProduct();
+    }
+
+    function addImages() {
+        var productSelected = w2ui['grid'].getSelection();
+        if (productSelected.length > 1 || productSelected.length < 1) {
+            alert('Please choice a product !');
+            return;
+        }
+
+        sessionStorage.setItem("currentProduct", productSelected)
+
+
+    }
+
+    function editProduct() {
+        var productSelected = w2ui['grid'].getSelection();
+        if (productSelected.length > 1 || productSelected.length < 1) {
+            alert('Please choice a product !');
+            return;
+        }
+
+        var infoProductSelected = w2ui['grid'].records.filter(item => {
+            return item.recid == productSelected;
+        })
+        debugger
+        console.log(infoProductSelected);
+
+        sessionStorage.setItem('idProductCurrent', infoProductSelected[0].recid);
+
+        popupEditProduct(infoProductSelected);
+    }
+
+    function removeProduct() {
+        var productSelected = w2ui['grid'].getSelection();
+        sessionStorage.setItem('idProductCurrent', productSelected);
+        showConfirmRemove();
+    }
 }
 
 // ------------------ Coupon ------------------------- //
@@ -289,4 +374,12 @@ function getListCategoryName() {
         return item.Category_Name;
     }) 
     return listCategory;
+}
+
+function request(postUrl, postData) {
+    return $.post(postUrl, postData,
+        function (res, status) {
+            return res;
+        }
+    )
 }

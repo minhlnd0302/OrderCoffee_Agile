@@ -197,6 +197,9 @@ namespace OrderCoffee.Controllers
             // call action register
             return View();
         }
+
+
+
         public JsonResult getInfoListProduct()
         {
             var jr = new JsonResult();
@@ -216,6 +219,24 @@ namespace OrderCoffee.Controllers
             return Json(jr, JsonRequestBehavior.AllowGet);
         }
 
+        //public JsonResult getInfoListProduct()
+        //{
+        //    var jr = new JsonResult();
+
+        //    string querySelectProduct = "Select * from product";
+
+        //    var listProduct = new List<Product>();
+        //    using (IDbConnection db = conn)
+        //    {
+        //        listProduct = db.Query<Product>(querySelectProduct).ToList();
+
+        //        jr.Data = new
+        //        {
+        //            list = listProduct,
+        //        };
+        //    }
+        //    return Json(jr, JsonRequestBehavior.AllowGet);
+        //}
         public JsonResult updateProduct(FormCollection collection)
         {
             _UpdateDictionaryCategory();
