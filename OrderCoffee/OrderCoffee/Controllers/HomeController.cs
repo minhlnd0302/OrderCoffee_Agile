@@ -323,6 +323,26 @@ namespace OrderCoffee.Controllers
         }
 
         #region Coupon
+
+        public JsonResult getInfoListCoupon()
+        {
+            var jr = new JsonResult();
+
+            string querySelectCoupon = "Select * from discount_code";
+
+            var listCoupon = new List<Discount_Code>();
+            using (IDbConnection db = conn)
+            {
+                listCoupon = db.Query<Discount_Code>(querySelectCoupon).ToList();
+
+                jr.Data = new
+                {
+                    list = listCoupon,
+                };
+            }
+            return Json(jr, JsonRequestBehavior.AllowGet);
+        }
+
         public JsonResult updateCoupon(FormCollection collection)
         {
             var jr = new JsonResult();

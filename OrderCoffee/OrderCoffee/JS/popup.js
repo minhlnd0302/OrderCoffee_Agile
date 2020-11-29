@@ -140,17 +140,17 @@ function addcoupon() {
 
     Request(postUrl, dataNewCoupon).then(res => {
         alert("Add coupon complete !!!");
+        resetdataCoupon();
         w2popup.close()
     })
     console.log(dataNewCoupon)
 }
-function poll() {
-    xhr.send(null);
-}
 
-function doit() {
-    var result = this.response;
-    result = JSON.parse(result);
+function resetdataCoupon() {
+    Request('/Home/getInfoListCoupon', null).then(res => {
+        var discount_code = res;
+        
+    })
 }
 
 function getDataUpdateCoupon(i) {

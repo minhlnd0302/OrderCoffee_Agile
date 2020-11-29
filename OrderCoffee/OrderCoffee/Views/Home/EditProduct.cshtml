@@ -306,8 +306,9 @@
                                 <br>
                                 <button class="w2ui-btn" onclick="w2ui.gird_code.selectAll();">Select All</button>
                                 <button class="w2ui-btn" onclick="w2ui.gird_code.selectNone();">Select None</button>
-                                <button class="w2ui-btn" onclick="editCoupon();">Edit Coupon</button>
+                                @*<button class="w2ui-btn" onclick="editCoupon();">Edit Coupon</button>*@
                                 <button class="w2ui-btn" onclick="addCoupon()">Add Coupon</button>
+                                @*<button class="w2ui-btn" onclick="removeCoupon()">Remove product</button>*@
                                 <script type="text/javascript">
                                     var discount_code = @Html.Raw(Json.Encode(ViewBag.listDiscount_Code));
 
@@ -348,29 +349,31 @@
                                         popupAddCode();
                                     }
 
-                                    function editCoupon() {
-                                        var couponSelected = w2ui['gird_code'].getSelection();
-                                        if (couponSelected.length > 1 || couponSelected.length < 1) {
-                                            alert('Please choice a Coupon !');
-                                            return;
-                                        }
+                                    //function editCoupon() {
+                                    //    var couponSelected = w2ui['gird_code'].getSelection();
+                                    //    if (couponSelected.length > 1 || couponSelected.length < 1) {
+                                    //        alert('Please choice a Coupon !');
+                                    //        return;
+                                    //    }
 
-                                        var infoProductSelected = w2ui['gird_code'].records.filter(item => {
-                                            return item.recid == couponSelected;
-                                        })
-                                        debugger
-                                        console.log(infoProductSelected);
+                                    //    var infoProductSelected = w2ui['gird_code'].records.filter(item => {
+                                    //        return item.recid == couponSelected;
+                                    //    })
+                                    //    debugger
+                                    //    console.log(infoProductSelected);
 
-                                        sessionStorage.setItem('idCouponCurrent', infoProductSelected[0].recid);
+                                    //    sessionStorage.setItem('idCouponCurrent', infoProductSelected[0].recid);
 
-                                        popupEditCoupon(infoProductSelected);
-                                    }
+                                    //    popupEditCoupon(infoProductSelected);
+                                    //}
 
-                                    function removeCoupon() {
-                                        var productSelected = w2ui['gird_code'].getSelection();
-                                        sessionStorage.setItem('idCouponCurrent', productSelected);
-                                        showConfirmRemoveCoupon();
-                                    }
+                                    //function removeCoupon() {
+                                        //var productSelected = w2ui['gird_code'].getSelection();
+                                        //var record = w2ui['gird_code'].get(productSelected).val();
+                                        //console.log(record);
+                                        //sessionStorage.setItem('idCouponCurrent', record.val("Code"));
+                                        //showConfirmRemoveCoupon();
+                                    //}
                                 </script>
 
                             </div>
