@@ -11,8 +11,8 @@ using System.Web.Mvc;
 
 namespace OrderCoffee.Controllers
 {
-    
-    public class AccountsController : Controller
+
+    public class AccountController : Controller
     {
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString());
         // GET: Accounts
@@ -21,23 +21,29 @@ namespace OrderCoffee.Controllers
             return View();
         }
 
-        public ActionResult updateProfile(string user_name, string full_name, string phone, string email, string password, string password2)
+        public ActionResult updateProfile(string user_name, string full_name, string phone, string email, string password, string password2, string address)
         {
             var username = Session["userName"].ToString();
 
-            string sql = "UPDATE Account SET name = @fullname, password = @pword, number = @numberphone, email = @mail WHERE username = @uname";
+            string sql = "UPDATE Account SET name = @fullname, password = @pword, number = @numberphone, email = @mail, address = @ad WHERE username = @uname";
 
-            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))
+            try
             {
-                var affectedRows = db.Execute(sql, new { uname = username, fullname = full_name, pword = password, numberphone = phone, mail = email });
+                using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ToString()))
+                {
+                    var affectedRows = db.Execute(sql, new { uname = username, fullname = full_name, pword = password, numberphone = phone, mail = email, ad = address });
 
-                Console.WriteLine(affectedRows);
+                    Console.WriteLine(affectedRows);
+                }
             }
-             
+            catch { };
+
+           
+
             return View("Index");
         }
 
-        
+
 
         // POST: Accounts/Delete/5
         [HttpPost]
@@ -59,7 +65,7 @@ namespace OrderCoffee.Controllers
         {
             JsonResult jr = new JsonResult();
 
-            var username = Session["userName"].ToString(); 
+            var username = Session["userName"].ToString();
 
             try
             {
@@ -69,14 +75,14 @@ namespace OrderCoffee.Controllers
                 using (IDbConnection db = conn)
                 {
                     List<Account> listAccount = db.Query<Account>(query_Account).ToList();
-                    foreach(var item in listAccount)
+                    foreach (var item in listAccount)
                     {
-                        if(username == item.UserName)
+                        if (username == item.UserName)
                         {
                             profileAccount = item;
                             break;
                         }
-                    }  
+                    }
                 }
 
                 jr.Data = new
